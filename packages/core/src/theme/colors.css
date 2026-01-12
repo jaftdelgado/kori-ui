@@ -1,0 +1,12 @@
+@theme {
+  /* Text colors */
+  --color-primaryText: #111827;
+  --color-secondaryText: #4b5563;
+  --color-placeholderText: #9ca3af;
+
+  /* Control colors */
+  --color-primaryControl: #ff3e00;
+  --color-primaryControlHover: #2563eb;
+  --color-secondaryControl: #e5e7eb;
+  --color-secondaryControlHover: #d1d5db;
+}

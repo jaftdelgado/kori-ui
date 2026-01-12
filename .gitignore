@@ -1,0 +1,40 @@
+# dependencias (recursivo para todos los paquetes)
+**/node_modules/
+.svelte-kit/
+.vercel/
+
+# output y compilación
+**/dist/
+**/out/
+**/build/
+.next/
+*.tgz
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment variables
+.env*
+!.env.example
+
+# caches y herramientas
+.eslintcache
+.cache
+*.tsbuildinfo
+.npm
+.pnpm-debug.log*
+
+# IDEs y SO
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db

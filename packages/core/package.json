@@ -1,0 +1,9 @@
+{
+  "name": "@chroma-ui/core",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./style": "./src/index.css"
+  }
+}

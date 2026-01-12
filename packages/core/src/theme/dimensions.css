@@ -1,0 +1,9 @@
+@theme {
+  /* Control heights & widths */
+  --spacing-control-sm: 2.15rem;
+  --spacing-control-md: 2.35rem;
+  --spacing-control-lg: 2.6rem;
+
+  /* Border Radius */
+  --radius-control: 0.75rem;
+}
