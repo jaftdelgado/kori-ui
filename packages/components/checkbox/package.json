@@ -1,5 +1,5 @@
 {
-  "name": "@chroma-ui/checkbox",
+  "name": "@kori-ui/checkbox",
   "version": "0.0.1",
   "type": "module",
   "main": "./src/index.ts",
@@ -14,8 +14,8 @@
     "./Checkbox.svelte": "./src/lib/Checkbox.svelte"
   },
   "dependencies": {
-    "@chroma-ui/core": "workspace:*",
-    "@chroma-ui/utilities": "workspace:*"
+    "@kori-ui/core": "workspace:*",
+    "@kori-ui/utilities": "workspace:*"
   },
   "peerDependencies": {
     "svelte": "^5.0.0"

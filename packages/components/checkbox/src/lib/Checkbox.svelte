@@ -1,5 +1,4 @@
 <script lang="ts">
-  //TO DO: Mejorar la animación del check
   import { draw } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
 
@@ -67,9 +66,14 @@
   </div>
 
   {#if label || description}
-    <label for={id} class="flex flex-col cursor-pointer {disabled ? 'cursor-not-allowed' : ''}">
+    <label
+      for={id}
+      class="flex flex-col justify-center min-h-6 cursor-pointer {disabled
+        ? 'cursor-not-allowed'
+        : ''}"
+    >
       {#if label}
-        <span class="text-sm font-medium text-primaryText leading-none">
+        <span class="text-sm font-medium text-primaryText leading-tight">
           {label}
         </span>
       {/if}

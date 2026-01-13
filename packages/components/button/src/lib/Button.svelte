@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { cn } from "@chroma-ui/utilities";
+  import { cn } from "@kori-ui/utilities";
   import type { HTMLButtonAttributes } from "svelte/elements";
   import type { Snippet, Component } from "svelte";
 

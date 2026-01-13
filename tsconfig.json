@@ -1,38 +1,36 @@
 {
   "compilerOptions": {
-    // Environment setup & latest features
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
     "module": "Preserve",
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
-
-    // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
-
-    // Best practices
     "strict": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-
-    // Monorepo Paths
     "baseUrl": ".",
     "paths": {
-      "@chroma-ui/core": ["./packages/core/src/index.ts"],
-      "@chroma-ui/utilities": ["./packages/utilities/src/index.ts"],
-      "@chroma-ui/*": ["./packages/components/*/src/index.ts"]
+      "@kori-ui/core": ["./packages/core/src/index.ts"],
+      "@kori-ui/utilities": ["./packages/utilities/src/index.ts"],
+      "@kori-ui/*": ["./packages/components/*/src/index.ts"]
     },
-
-    // Some stricter flags
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "exclude": ["node_modules", "**/dist/**"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/.svelte-kit",
+    ".svelte-kit"
+  ]
 }

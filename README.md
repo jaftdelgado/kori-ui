@@ -1,4 +1,4 @@
-# chroma-ui
+# kori-ui
 
 To install dependencies:
 

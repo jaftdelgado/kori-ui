@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Checkbox } from "@chroma-ui/checkbox";
+  import { Checkbox } from "@kori-ui/checkbox";
   import ComponentExample from "$lib/components/ComponentExample.svelte";
 
   let checked = $state(true);

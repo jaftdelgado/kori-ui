@@ -10,10 +10,10 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "@chroma-ui/core": "workspace:*",
-    "@chroma-ui/utilities": "workspace:*",
-    "@chroma-ui/button": "workspace:*",
-    "@chroma-ui/checkbox": "workspace:*"
+    "@kori-ui/core": "workspace:*",
+    "@kori-ui/utilities": "workspace:*",
+    "@kori-ui/button": "workspace:*",
+    "@kori-ui/checkbox": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "latest",

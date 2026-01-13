@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from "@chroma-ui/button";
+  import { Button } from "@kori-ui/button";
   import CalendarPlus from "$lib/resources/svg/CalendarPlus.svelte";
   import ComponentExample from "$lib/components/ComponentExample.svelte";
 </script>

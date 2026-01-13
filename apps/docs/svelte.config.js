@@ -8,9 +8,9 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      "@chroma-ui/core": "../../packages/core/src/index.ts",
-      "@chroma-ui/utilities": "../../packages/utilities/src/index.ts",
-      "@chroma-ui/*": "../../packages/components/*",
+      "@kori-ui/core": "../../packages/core/src/index.ts",
+      "@kori-ui/utilities": "../../packages/utilities/src/index.ts",
+      "@kori-ui/*": "../../packages/components/*",
     },
   },
 };
