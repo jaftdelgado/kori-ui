@@ -17,13 +17,13 @@
   <Icon name="display" />
 {/snippet}
 
-<div class="w-full max-w-md">
+<div class="max-w-md mx-auto">
   <SegmentedControl
     bind:value={theme}
     options={[
-      { value: "light", label: "Light", icon: sunIcon },
-      { value: "dark", label: "Dark", icon: moonIcon },
-      { value: "system", label: "System", icon: monitorIcon }
+      { value: "light", icon: sunIcon, iconOnly: true },
+      { value: "dark", icon: moonIcon, iconOnly: true },
+      { value: "system", icon: monitorIcon, iconOnly: true }
     ]}
   />
 </div>

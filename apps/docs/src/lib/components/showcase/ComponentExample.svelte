@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import { Text } from "@kori-ui/Text";
   import CodeBlock from "$lib/components/ui/CodeBlock.svelte";
 
   interface Props {
@@ -13,12 +14,10 @@
 
 <div class="my-10 space-y-4">
   {#if title}
-    <h3 class="text-xl font-semibold text-primaryText">{title}</h3>
+    <Text variant="headline" class="text-primaryText">{title}</Text>
   {/if}
 
-  <div
-    class="flex flex-col overflow-hidden border border-secondaryControl rounded-control bg-white"
-  >
+  <div class="flex flex-col overflow-hidden border border-secondaryControl rounded-2xl">
     <div class="flex min-h-92 items-center justify-center bg-center p-8">
       {@render preview()}
     </div>

@@ -8,11 +8,44 @@
 
 @import "tailwindcss";
 
+/* 1. Importación del sistema de diseño base */
 @import "../../../packages/core/src/index.css";
 
+/* 2. Definición de variables globales (Modo Claro por defecto) */
+@theme {
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-text-main: var(--color-gray-900);
+  --color-border-main: var(--color-gray-200);
+
+  --color-docs-brand: #8b5cf6;
+  --sidebar-bg: var(--color-gray-50);
+}
+
+/* 3. Sobrescritura para Modo Oscuro y Estilos Base */
 @layer base {
+  /* Cuando la clase .dark está presente en el html */
+  .dark {
+    --color-background: #0a0a0a;
+    --color-surface: #171717;
+    --color-text-main: #ffffff;
+    --color-border-main: var(--color-gray-800);
+    --sidebar-bg: #111111;
+
+    /* Forzamos que el esquema de color del navegador cambie */
+    color-scheme: dark;
+  }
+
   html,
   body {
     font-family: "Inter", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    /* Transición suave para cuando se alterna el tema */
+    @apply antialiased transition-colors duration-300;
+  }
+
+  * {
+    border-color: var(--color-border-main);
   }
 }

@@ -8,6 +8,7 @@
     label?: string;
     disabled?: boolean;
     icon?: Component | Snippet;
+    iconOnly?: boolean;
   };
 
   interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "onchange"> {
@@ -33,6 +34,9 @@
   let elements: Record<string, HTMLElement> = $state({});
   let activeElement = $derived(elements[value]);
 
+  // Lógica para detectar si el control debe ser compacto o ancho completo
+  const isCompact = $derived(options.every((opt) => opt.iconOnly));
+
   function handleSelect(optionValue: string, optionDisabled?: boolean) {
     if (disabled || optionDisabled) return;
     value = optionValue;
@@ -40,8 +44,8 @@
   }
 
   const containerSizes = {
-    md: "h-10 p-1",
-    lg: "h-12 p-1"
+    md: "h-control-md p-1",
+    lg: "h-control-lg p-1"
   };
 
   const textSizes = {
@@ -61,7 +65,7 @@
       {/if}
     {/if}
 
-    {#if option.label}
+    {#if option.label && !option.iconOnly}
       <span class="leading-tight font-medium truncate">
         {option.label}
       </span>
@@ -73,8 +77,10 @@
   role="radiogroup"
   aria-disabled={disabled}
   class={cn(
-    "relative inline-flex items-center bg-gray-100 rounded-control w-full select-none isolate",
+    "relative inline-flex items-center bg-gray-100 rounded-control select-none isolate",
     containerSizes[size],
+    // CAMBIO CLAVE: Si todos son iconOnly, usamos w-fit. Si hay texto, usamos w-full.
+    isCompact ? "w-fit" : "w-full",
     disabled && "opacity-60 cursor-not-allowed",
     className
   )}
@@ -86,7 +92,7 @@
 
   <div
     use:segmentedIndicator={activeElement}
-    class="absolute left-0 top-1 bottom-1 bg-white shadow-sm rounded-[calc(var(--radius-control)-4px)] z-10 ease-segmented pointer-events-none"
+    class="absolute left-0 top-1 bottom-1 bg-white shadow-xs rounded-[calc(var(--radius-control)-4px)] z-10 ease-segmented pointer-events-none"
   ></div>
 
   {#each options as option}
@@ -101,9 +107,11 @@
       disabled={isDisabled}
       onclick={() => handleSelect(option.value, isDisabled)}
       class={cn(
-        "group relative z-20 flex-1 h-full rounded-[calc(var(--radius-control)-4px)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryControl/20",
-        "transition-colors duration-300 ease-out",
+        "group relative z-20 h-full rounded-[calc(var(--radius-control)-4px)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryControl/20",
+        "transition-colors duration-300 ease-out flex items-center justify-center",
         textSizes[size],
+        // aspect-square solo funciona si el contenedor no lo obliga a estirarse
+        option.iconOnly ? "aspect-square flex-none px-0" : "flex-1 px-3",
         isDisabled ? "cursor-auto text-gray-400 opacity-50" : "cursor-pointer",
         isSelected ? "text-primaryText" : "text-secondaryText hover:text-primaryText"
       )}

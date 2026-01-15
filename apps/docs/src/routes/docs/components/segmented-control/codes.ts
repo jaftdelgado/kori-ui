@@ -28,25 +28,56 @@ export const disabledCode = `<script>
 
 export const iconsCode = `<script>
   import { SegmentedControl } from "@kori-ui/segmented-control";
+  import Icon from "$lib/components/ui/Icon.svelte";
+
+  let theme = $state("light");
 </script>
 
 {#snippet sunIcon()}
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-  </svg>
+  <Icon name="sun" />
 {/snippet}
 
 {#snippet moonIcon()}
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>
+  <Icon name="moon" />
 {/snippet}
 
-<SegmentedControl 
-  value="light"
+{#snippet monitorIcon()}
+  <Icon name="display" />
+{/snippet}
+
+<SegmentedControl
+  bind:value={theme}
   options={[
     { value: "light", label: "Light", icon: sunIcon },
     { value: "dark", label: "Dark", icon: moonIcon },
-    { value: "system", label: "System" }
-  ]} 
+    { value: "system", label: "System", icon: monitorIcon }
+  ]}
+/>`;
+
+export const iconsOnlyCode = `<script>
+  import { SegmentedControl } from "@kori-ui/segmented-control";
+  import Icon from "$lib/components/ui/Icon.svelte";
+
+  let theme = $state("light");
+</script>
+
+{#snippet sunIcon()}
+  <Icon name="sun" />
+{/snippet}
+
+{#snippet moonIcon()}
+  <Icon name="moon" />
+{/snippet}
+
+{#snippet monitorIcon()}
+  <Icon name="display" />
+{/snippet}
+
+<SegmentedControl
+  bind:value={theme}
+  options={[
+    { value: "light", icon: sunIcon, iconOnly: true },
+    { value: "dark", icon: moonIcon, iconOnly: true },
+    { value: "system", icon: monitorIcon, iconOnly: true }
+  ]}
 />`;

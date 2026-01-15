@@ -11,7 +11,7 @@
   }
 </script>
 
-<div class="flex h-screen w-full flex-col overflow-hidden bg-white">
+<div class="flex h-screen w-full flex-col overflow-hidden bg-background">
   <TopBar onToggleSidebar={toggleSidebar} />
 
   <div class="flex flex-1 overflow-hidden">

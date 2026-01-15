@@ -1,13 +1,66 @@
 <script lang="ts">
+  import { SegmentedControl } from "@kori-ui/segmented-control";
+  import Icon from "$lib/components/ui/Icon.svelte";
+  import { onMount } from "svelte";
+
   let { onToggleSidebar } = $props();
+
+  // Inicializamos con el valor guardado o 'system' por defecto
+  let theme = $state("system");
+
+  // Efecto para aplicar el tema al DOM
+  $effect(() => {
+    const root = window.document.documentElement;
+    const isDark =
+      theme === "dark" ||
+      (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    root.classList.toggle("dark", isDark);
+
+    // Guardamos la preferencia
+    if (theme !== "system") {
+      localStorage.setItem("theme", theme);
+    } else {
+      localStorage.removeItem("theme");
+    }
+  });
+
+  onMount(() => {
+    // Recuperar tema guardado al cargar la página
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) theme = savedTheme;
+
+    // Escuchar cambios del sistema si está en modo 'system'
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => {
+      if (theme === "system") {
+        window.document.documentElement.classList.toggle("dark", mediaQuery.matches);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  });
 </script>
 
+{#snippet sunIcon()}
+  <Icon name="sun" />
+{/snippet}
+
+{#snippet moonIcon()}
+  <Icon name="moon" />
+{/snippet}
+
+{#snippet monitorIcon()}
+  <Icon name="display" />
+{/snippet}
+
 <header
-  class="flex h-16 w-full items-center justify-between border-b border-gray-200 bg-white px-6"
+  class="flex h-16 w-full items-center justify-between border-b border-gray-200 bg-background px-6"
 >
   <div class="flex items-center gap-4">
     <button
-      class="flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 md:hidden"
+      class="flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 md:hidden dark:text-gray-400 dark:hover:bg-gray-900"
       onclick={onToggleSidebar}
       aria-label="Toggle Menu"
     >
@@ -34,33 +87,14 @@
     </div>
   </div>
 
-  <div class="flex items-center gap-4">
-    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-      <a href="/" class="hover:text-gray-900">Dashboard</a>
-      <a href="/docs" class="hover:text-gray-900">Docs</a>
-      <a href="/settings" class="hover:text-gray-900">Settings</a>
-    </nav>
-
-    <div class="hidden md:block h-6 w-px bg-gray-200"></div>
-
-    <button
-      class="flex items-center justify-center rounded-full h-8 w-8 bg-gray-100 hover:bg-gray-200 text-gray-600"
-    >
-      <span class="sr-only">Profile</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
-      </svg>
-    </button>
+  <div class="hidden md:block">
+    <SegmentedControl
+      bind:value={theme}
+      options={[
+        { value: "light", icon: sunIcon, iconOnly: true },
+        { value: "dark", icon: moonIcon, iconOnly: true },
+        { value: "system", icon: monitorIcon, iconOnly: true }
+      ]}
+    />
   </div>
 </header>

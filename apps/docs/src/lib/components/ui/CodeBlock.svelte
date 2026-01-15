@@ -9,6 +9,7 @@
   let { code, class: className }: Props = $props();
   let highlightedCode = $state('<span class="text-gray-400 text-xs">Loading...</span>');
   let isCopied = $state(false);
+  let isExpanded = $state(false);
 
   $effect(() => {
     highlight(code).then((html) => {
@@ -23,18 +24,50 @@
   }
 </script>
 
-<div class="relative group bg-[#fafafa] font-mono text-sm leading-relaxed p-5 {className}">
-  <button
-    class="absolute right-4 top-4 z-10 rounded-md border border-gray-200 bg-white px-2 py-1 text-[10px] uppercase tracking-widest text-secondaryText transition-all hover:border-primaryControl hover:text-primaryControl"
-    onclick={handleCopy}
-    aria-label="Copy code"
-  >
-    {isCopied ? "Copied!" : "Copy"}
-  </button>
-
-  <div class="shiki-container overflow-x-auto">
-    {@html highlightedCode}
+<div
+  class="relative group bg-[#fafafa] font-mono text-sm leading-relaxed rounded-lg border border-gray-200 {className}"
+>
+  <div class="absolute right-4 top-4 z-10 flex gap-2">
+    <button
+      class="rounded-md border border-gray-200 bg-white px-2 py-1 text-[10px] uppercase tracking-widest text-secondaryText transition-all hover:border-primaryControl hover:text-primaryControl"
+      onclick={handleCopy}
+      aria-label="Copy code"
+    >
+      {isCopied ? "Copied!" : "Copy"}
+    </button>
   </div>
+
+  <div class="p-5">
+    <div
+      class="shiki-container overflow-x-auto transition-all duration-300 ease-in-out {isExpanded
+        ? ''
+        : 'max-h-40 overflow-hidden'}"
+    >
+      {@html highlightedCode}
+    </div>
+  </div>
+
+  {#if !isExpanded}
+    <div
+      class="absolute inset-x-0 bottom-0 z-20 flex h-32 flex-col justify-end bg-linear-to-t from-[#fafafa] via-[#fafafa]/80 to-transparent pb-4 text-center rounded-b-lg"
+    >
+      <button
+        onclick={() => (isExpanded = true)}
+        class="mx-auto rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-medium text-gray-600 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900"
+      >
+        Expandir código
+      </button>
+    </div>
+  {:else}
+    <div class="border-t border-gray-200 bg-gray-50 p-2 text-center rounded-b-lg">
+      <button
+        onclick={() => (isExpanded = false)}
+        class="text-xs font-medium text-gray-500 hover:text-gray-900"
+      >
+        Colapsar
+      </button>
+    </div>
+  {/if}
 </div>
 
 <style>

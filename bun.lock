@@ -94,6 +94,17 @@
         "svelte": "^5.0.0",
       },
     },
+    "packages/components/text": {
+      "name": "@kori-ui/text",
+      "version": "0.0.1",
+      "dependencies": {
+        "@kori-ui/core": "workspace:*",
+        "@kori-ui/utilities": "workspace:*",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
+      },
+    },
     "packages/core": {
       "name": "@kori-ui/core",
       "version": "0.0.1",
@@ -207,6 +218,8 @@
     "@kori-ui/slider": ["@kori-ui/slider@workspace:packages/components/slider"],
 
     "@kori-ui/switch": ["@kori-ui/switch@workspace:packages/components/switch"],
+
+    "@kori-ui/text": ["@kori-ui/text@workspace:packages/components/text"],
 
     "@kori-ui/utilities": ["@kori-ui/utilities@workspace:packages/utilities"],
 

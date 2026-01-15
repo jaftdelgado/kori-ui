@@ -5,6 +5,7 @@
   import SegmentedDisabled from "$lib/examples/segmented-control/SegmentedDisabled.svelte";
   import SegmentedIcons from "$lib/examples/segmented-control/SegmentedIcons.svelte";
   import * as code from "./codes";
+  import SegmentedIconOnly from "$lib/examples/segmented-control/SegmentedIconsOnly.svelte";
 </script>
 
 <main class="space-y-8">
@@ -32,6 +33,12 @@
     <ComponentExample title="With Icons" code={code.iconsCode}>
       {#snippet preview()}
         <SegmentedIcons />
+      {/snippet}
+    </ComponentExample>
+
+    <ComponentExample title="Icons Only" code={code.iconsOnlyCode}>
+      {#snippet preview()}
+        <SegmentedIconOnly />
       {/snippet}
     </ComponentExample>
 
