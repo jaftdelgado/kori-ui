@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { Checkbox } from "@kori-ui/checkbox";
-  import ComponentExample from "$lib/components/ComponentExample.svelte";
-
-  let checked = $state(true);
+  import ComponentExample from "$lib/components/showcase/ComponentExample.svelte";
+  import CheckboxBasic from "$lib/examples/checkbox/CheckboxBasic.svelte";
+  import CheckboxDescription from "$lib/examples/checkbox/CheckboxDescription.svelte";
+  import CheckboxStates from "$lib/examples/checkbox/CheckboxStates.svelte";
+  import CheckboxControlled from "$lib/examples/checkbox/CheckboxControlled.svelte";
+  import * as code from "./codes";
 </script>
 
-<main class="p-12 space-y-8">
+<main class="space-y-8">
   <header class="border-b border-secondaryControl pb-6">
     <h1 class="text-4xl font-bold italic text-primaryText">Checkbox</h1>
     <p class="mt-2 text-secondaryText">
@@ -13,78 +15,28 @@
     </p>
   </header>
 
-  <section class="space-y-4">
-    <ComponentExample
-      title="Basic Usage"
-      code={/* html */ `
-<Checkbox label="Accept terms and conditions" />
-<Checkbox label="Subscribe to newsletter" checked />
-      `}
-    >
+  <section class="space-y-12">
+    <ComponentExample title="Basic Usage" code={code.basicCode}>
       {#snippet preview()}
-        <div class="flex flex-col gap-4">
-          <Checkbox label="Accept terms and conditions" />
-          <Checkbox label="Subscribe to newsletter" checked />
-        </div>
+        <CheckboxBasic />
       {/snippet}
     </ComponentExample>
 
-    <ComponentExample
-      title="With Description"
-      code={/* html */ `
-<Checkbox 
-  label="Notifications" 
-  description="Receive email updates about your account activity." 
-/>
-      `}
-    >
+    <ComponentExample title="With Description" code={code.descriptionCode}>
       {#snippet preview()}
-        <Checkbox
-          label="Notifications"
-          description="Receive email updates about your account activity."
-        />
+        <CheckboxDescription />
       {/snippet}
     </ComponentExample>
 
-    <ComponentExample
-      title="States"
-      code={/* html */ `
-<Checkbox label="Disabled unchecked" disabled />
-<Checkbox label="Disabled checked" checked disabled />
-      `}
-    >
+    <ComponentExample title="States" code={code.statesCode}>
       {#snippet preview()}
-        <div class="flex flex-col gap-4">
-          <Checkbox label="Disabled unchecked" disabled />
-          <Checkbox label="Disabled checked" checked disabled />
-        </div>
+        <CheckboxStates />
       {/snippet}
     </ComponentExample>
 
-    <ComponentExample
-      title="Controlled Component"
-      code={/* html */ `
-<script>
-  let checked = $state(true);
-</script>
-
-<Checkbox 
-  label="Simple binding" 
-  bind:checked={checked} 
-/>
-
-<p>The checkbox is: {checked ? 'checked' : 'unchecked'}</p>
-      `}
-    >
+    <ComponentExample title="Controlled Component" code={code.controlledCode}>
       {#snippet preview()}
-        <div class="flex flex-col gap-2">
-          <Checkbox label="Simple binding" bind:checked />
-          <p class="text-sm text-secondaryText">
-            Estado actual: <span class="font-mono font-bold text-primaryControl"
-              >{checked ? "Checked" : "Unchecked"}</span
-            >
-          </p>
-        </div>
+        <CheckboxControlled />
       {/snippet}
     </ComponentExample>
   </section>

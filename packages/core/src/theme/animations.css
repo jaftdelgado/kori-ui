@@ -45,4 +45,10 @@
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
   }
+
+  .ease-segmented {
+    transition-property: transform, width;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
 }
