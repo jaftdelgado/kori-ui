@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { Text } from "@kori-ui/Text";
+  import { Text } from "@kori-ui/text";
   import CodeBlock from "$lib/components/ui/CodeBlock.svelte";
 
   interface Props {
