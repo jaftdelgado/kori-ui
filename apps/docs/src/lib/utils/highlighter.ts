@@ -5,7 +5,7 @@ let highlighter: Highlighter | null = null;
 export async function highlight(
   code: string,
   lang: string = "svelte",
-  theme: string = "github-dark"
+  theme: string = "github-light"
 ) {
   if (!highlighter) {
     highlighter = await createHighlighter({

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { draw } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
+  import { checkAnimation } from "@kori-ui/utilities";
 
   type CheckboxProps = {
     checked?: boolean;
@@ -36,11 +37,12 @@
     <div
       role="presentation"
       onclick={toggle}
-      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-control border-2 transition-all duration-200 cursor-pointer
+      use:checkAnimation={checked}
+      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border-2 transition-all duration-200
       {checked
         ? 'bg-primaryControl border-primaryControl'
         : 'bg-white border-secondaryControl group-hover:border-primaryControl/50'}
-      {disabled ? 'opacity-50 cursor-not-allowed bg-gray-100 border-gray-300' : ''}"
+      {disabled ? 'opacity-50 cursor-default bg-gray-100 border-gray-300' : 'cursor-pointer'}"
     >
       {#if checked}
         <svg
@@ -53,7 +55,7 @@
           <path
             in:draw={{
               duration: 300,
-              delay: 300,
+              delay: 200,
               easing: cubicOut
             }}
             d="M5 13l4 4L19 7"
@@ -68,9 +70,7 @@
   {#if label || description}
     <label
       for={id}
-      class="flex flex-col justify-center min-h-6 cursor-pointer {disabled
-        ? 'cursor-not-allowed'
-        : ''}"
+      class="flex flex-col justify-center min-h-6 {disabled ? 'cursor-default' : 'cursor-pointer'}"
     >
       {#if label}
         <span class="text-sm font-medium text-primaryText leading-tight">
