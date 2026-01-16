@@ -1,9 +1,5 @@
 @layer base {
-  /* ------------------------------------------------ */
-  /* 1. Definición de Variables (Valores reales)     */
-  /* ------------------------------------------------ */
   :root {
-    /* -- LIGHT MODE (Tus valores originales) -- */
     --color-primaryText: #111827;
     --color-secondaryText: #4b5563;
     --color-placeholderText: #9ca3af;
@@ -14,37 +10,24 @@
     --color-secondaryControlHover: #d1d5db;
   }
 
-  /* -- DARK MODE (Valores invertidos) -- */
-  /* Se activa cuando el elemento padre (html o body) tiene la clase "dark" */
   :root.dark {
-    /* Textos: Se vuelven claros sobre fondo oscuro */
-    --color-primaryText: #f9fafb; /* Casi blanco */
-    --color-secondaryText: #9ca3af; /* Gris medio-claro */
-    --color-placeholderText: #6b7280; /* Gris un poco más oscuro */
+    --color-primaryText: #f9fafb;
+    --color-secondaryText: #9ca3af;
+    --color-placeholderText: #6b7280;
 
-    /* Controles: La marca se mantiene, los fondos grises se oscurecen */
-    --color-primaryControl: #ff3e00; /* Mismo naranja (o ajústalo si brilla mucho) */
-    --color-primaryControlHover: #3b82f6; /* Azul ligeramente más brillante para dark */
+    --color-primaryControl: #ff3e00;
+    --color-primaryControlHover: #ff5921;
 
-    /* Fondos secundarios: Deben ser oscuros (ej. fondo de botones desactivados o switches) */
-    --color-secondaryControl: #1f2937; /* Gris muy oscuro */
-    --color-secondaryControlHover: #374151; /* Un poco más claro al hover */
+    --color-secondaryControl: #29292b;
+    --color-secondaryControlHover: #374151;
   }
 }
 
-/* ------------------------------------------------ */
-/* 2. Configuración del Tema (Mapeo a Tailwind)    */
-/* ------------------------------------------------ */
 @theme {
-  /* Aquí le decimos a Tailwind que genere las clases (ej. text-primaryText)
-     usando las variables CSS dinámicas que definimos arriba */
-
-  /* Text colors */
   --color-primaryText: var(--color-primaryText);
   --color-secondaryText: var(--color-secondaryText);
   --color-placeholderText: var(--color-placeholderText);
 
-  /* Control colors */
   --color-primaryControl: var(--color-primaryControl);
   --color-primaryControlHover: var(--color-primaryControlHover);
   --color-secondaryControl: var(--color-secondaryControl);

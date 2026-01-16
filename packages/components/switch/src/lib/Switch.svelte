@@ -2,9 +2,6 @@
   import { cn, switchAnimation } from "@kori-ui/utilities";
   import type { HTMLInputAttributes } from "svelte/elements";
 
-  //TODO: Agregar posicionamiento de etiqueta (label) a la izquierda o derecha
-  //TODO: Corregir estado disabled
-
   interface SwitchProps extends Omit<HTMLInputAttributes, "size" | "onchange"> {
     checked?: boolean;
     disabled?: boolean;
@@ -68,7 +65,7 @@
       class={cn(
         "flex items-center p-0.5 bg-gray-200 peer-focus:ring-2 peer-focus:ring-primaryControl/20 transition-colors duration-300 ease-switch-custom rounded-full cursor-pointer",
         trackSizes[size],
-        checked ? "bg-primaryControl" : "bg-gray-300 group-hover:bg-gray-400",
+        checked ? "bg-primaryControl" : "bg-secondaryControl group-hover:bg-secondaryControlHover",
         disabled && "opacity-50 cursor-not-allowed bg-gray-200 group-hover:bg-gray-200"
       )}
       onclick={toggle}

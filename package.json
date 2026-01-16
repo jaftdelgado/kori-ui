@@ -6,7 +6,8 @@
     "apps/*",
     "packages/core",
     "packages/utilities",
-    "packages/components/*"
+    "packages/components/*",
+    "packages/kori-ui"
   ],
   "scripts": {
     "dev": "bun --filter \"*\" dev",
@@ -16,6 +17,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@tailwindcss/vite": "^4.0.0",
     "@types/bun": "latest",
     "eslint": "^9.39.2",

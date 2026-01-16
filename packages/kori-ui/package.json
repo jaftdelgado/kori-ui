@@ -1,5 +1,5 @@
 {
-  "name": "@kori-ui/button",
+  "name": "kori-ui",
   "version": "0.0.1",
   "type": "module",
   "main": "./src/index.ts",
@@ -9,7 +9,8 @@
       "types": "./src/index.ts",
       "svelte": "./src/index.ts",
       "default": "./src/index.ts"
-    }
+    },
+    "./styles.css": "./src/styles.css"
   },
   "files": [
     "src"
@@ -18,7 +19,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@kori-ui/utilities": "workspace:*"
+    "@kori-ui/core": "workspace:*",
+    "@kori-ui/utilities": "workspace:*",
+    "@kori-ui/button": "workspace:*",
+    "@kori-ui/slider": "workspace:*",
+    "@kori-ui/switch": "workspace:*",
+    "@kori-ui/radio": "workspace:*",
+    "@kori-ui/tabs": "workspace:*",
+    "@kori-ui/text": "workspace:*"
   },
   "peerDependencies": {
     "svelte": "^5.0.0"

@@ -37,7 +37,6 @@
     lg: "h-11 px-6 text-base gap-3"
   };
 
-  // Mapeo de colores para la onda del ripple según la variante
   const rippleColors = {
     primary: "rgba(255, 255, 255, 0.35)",
     secondary: "rgba(0, 0, 0, 0.1)",

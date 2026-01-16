@@ -3,38 +3,36 @@
   import type { HTMLAttributes } from "svelte/elements";
   import type { Snippet, Component } from "svelte";
 
-  export type SegmentedOption = {
+  export type TabOption = {
     value: string;
     label?: string;
     disabled?: boolean;
     icon?: Component | Snippet;
-    iconOnly?: boolean;
   };
 
   interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "onchange"> {
-    options: SegmentedOption[];
+    options: TabOption[];
     value: string;
-    name?: string;
     size?: "md" | "lg";
     disabled?: boolean;
+    fullWidth?: boolean;
     onchange?: (value: string) => void;
   }
 
   let {
     options,
     value = $bindable(),
-    name,
     size = "md",
     disabled = false,
+    fullWidth = false,
     onchange,
     class: className,
     ...rest
   }: Props = $props();
 
   let elements: Record<string, HTMLElement> = $state({});
-  let activeElement = $derived(elements[value]);
 
-  const isCompact = $derived(options.every((opt) => opt.iconOnly));
+  let activeElement = $derived(elements[value]);
 
   function handleSelect(optionValue: string, optionDisabled?: boolean) {
     if (disabled || optionDisabled) return;
@@ -42,19 +40,14 @@
     onchange?.(value);
   }
 
-  const containerSizes = {
-    md: "h-control-md p-1",
-    lg: "h-control-lg p-1"
-  };
-
-  const textSizes = {
-    md: "text-sm",
-    lg: "text-base"
+  const sizes = {
+    md: "text-sm h-10 gap-2 px-4",
+    lg: "text-base h-12 gap-2.5 px-5"
   };
 </script>
 
-{#snippet renderLabel(option: SegmentedOption)}
-  <div class="flex items-center justify-center gap-2 relative pointer-events-none">
+{#snippet renderLabel(option: TabOption)}
+  <div class="flex items-center justify-center gap-2 relative pointer-events-none z-20">
     {#if option.icon}
       {#if typeof option.icon === "function"}
         {@render (option.icon as Snippet)()}
@@ -64,8 +57,8 @@
       {/if}
     {/if}
 
-    {#if option.label && !option.iconOnly}
-      <span class="leading-tight font-medium truncate">
+    {#if option.label}
+      <span class="font-medium leading-none truncate">
         {option.label}
       </span>
     {/if}
@@ -73,24 +66,18 @@
 {/snippet}
 
 <div
-  role="radiogroup"
+  role="tablist"
   aria-disabled={disabled}
   class={cn(
-    "relative inline-flex items-center bg-secondaryControl rounded-control select-none isolate",
-    containerSizes[size],
-    isCompact ? "w-fit" : "w-full",
+    "relative flex items-center border-b border-gray-200 w-full select-none isolate",
     disabled && "opacity-60 cursor-not-allowed",
     className
   )}
   {...rest}
 >
-  {#if name}
-    <input type="hidden" {name} {value} />
-  {/if}
-
   <div
     use:segmentedIndicator={activeElement}
-    class="absolute left-0 top-1 bottom-1 bg-white shadow-xs rounded-[calc(var(--radius-control)-4px)] z-10 ease-segmented pointer-events-none"
+    class="absolute left-0 bottom-0 h-0.5 bg-primaryControl z-10 ease-segmented pointer-events-none"
   ></div>
 
   {#each options as option}
@@ -100,16 +87,17 @@
     <button
       bind:this={elements[option.value]}
       type="button"
-      role="radio"
-      aria-checked={isSelected}
+      role="tab"
+      aria-selected={isSelected}
       disabled={isDisabled}
       onclick={() => handleSelect(option.value, isDisabled)}
       class={cn(
-        "group relative z-20 h-full rounded-[calc(var(--radius-control)-4px)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryControl/20",
-        "transition-colors duration-300 ease-out flex items-center justify-center",
-        textSizes[size],
-        option.iconOnly ? "aspect-square flex-none px-0" : "flex-1 px-3",
-        isDisabled ? "cursor-auto text-gray-400 opacity-50" : "cursor-pointer",
+        "group relative flex items-center justify-center transition-colors duration-300 ease-out focus-visible:outline-none",
+        sizes[size],
+        fullWidth ? "flex-1" : "min-w-fit",
+
+        isDisabled ? "cursor-auto text-gray-400" : "cursor-pointer",
+
         isSelected ? "text-primaryText" : "text-secondaryText hover:text-primaryText"
       )}
     >

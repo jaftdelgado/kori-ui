@@ -2,10 +2,6 @@
   import { cn, sliderAnimation } from "@kori-ui/utilities";
   import type { HTMLInputAttributes } from "svelte/elements";
 
-  //TODO: Agregar soporte para modo vertical
-  //TODO: Agregar marcas (para rangos) en el track
-  //TODO: Agregar posicionamiento de etiquetas (labels) arriba, abajo, izquierda, derecha
-
   interface SliderProps extends Omit<HTMLInputAttributes, "size" | "type" | "onchange"> {
     value?: number;
     min?: number;

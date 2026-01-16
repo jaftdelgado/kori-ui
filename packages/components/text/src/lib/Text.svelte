@@ -62,7 +62,6 @@
     white: "text-white"
   };
 
-  // Si no se especifica peso, asignamos uno por defecto según la variante
   const defaultWeights: Record<Variant, string> = {
     title: "font-bold",
     subtitle: "font-semibold",

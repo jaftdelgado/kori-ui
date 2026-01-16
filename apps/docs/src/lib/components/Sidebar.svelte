@@ -6,9 +6,11 @@
   const links = [
     { href: "/docs/components/button", label: "Button" },
     { href: "/docs/components/checkbox", label: "Checkbox" },
+    { href: "/docs/components/radio", label: "Radio" },
     { href: "/docs/components/segmented-control", label: "Segmented Control" },
     { href: "/docs/components/slider", label: "Slider" },
-    { href: "/docs/components/switch", label: "Switch" }
+    { href: "/docs/components/switch", label: "Switch" },
+    { href: "/docs/components/tabs", label: "Tabs" }
   ];
 </script>
 
@@ -24,8 +26,8 @@
 
 <aside
   class="
-    fixed inset-y-0 left-0 z-50 w-64 transform bg-gray-50/50 p-6 transition-transform duration-300 ease-in-out
-    md:static md:translate-x-0 md:border-r md:border-secondaryControl
+    fixed inset-y-0 left-0 z-50 w-64 transform p-6 transition-transform duration-300 ease-in-out
+    md:static md:translate-x-0
     {isOpen ? 'translate-x-0 shadow-xl' : '-translate-x-full'}
   "
 >
@@ -57,7 +59,7 @@
 
     <div class="px-3">
       <h2 class="text-sm font-bold uppercase tracking-wider text-secondaryText">Componentes</h2>
-      <nav class="mt-2 flex flex-col gap-1">
+      <nav class="mt-2 flex flex-col">
         {#each links as link}
           <a
             href={link.href}
