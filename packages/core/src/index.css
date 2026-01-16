@@ -1,6 +1,0 @@
-@import "tailwindcss";
-@import "./theme/colors.css";
-@import "./theme/animations.css";
-@import "./theme/dimensions.css";
-
-@source "../../components/**/*.svelte";
