@@ -6,6 +6,7 @@
   import SegmentedIcons from "$lib/examples/segmented-control/SegmentedIcons.svelte";
   import * as code from "./codes";
   import SegmentedIconOnly from "$lib/examples/segmented-control/SegmentedIconsOnly.svelte";
+  import SegmentedOrientation from "$lib/examples/segmented-control/SegmentedOrientation.svelte";
 </script>
 
 <main class="space-y-8">
@@ -39,6 +40,12 @@
     <ComponentExample title="Icons Only" code={code.iconsOnlyCode}>
       {#snippet preview()}
         <SegmentedIconOnly />
+      {/snippet}
+    </ComponentExample>
+
+    <ComponentExample title="Vertical Orientation" code={code.orientationCode}>
+      {#snippet preview()}
+        <SegmentedOrientation />
       {/snippet}
     </ComponentExample>
 

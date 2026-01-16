@@ -16,6 +16,7 @@
     value: string;
     name?: string;
     size?: "md" | "lg";
+    orientation?: "horizontal" | "vertical";
     disabled?: boolean;
     onchange?: (value: string) => void;
   }
@@ -25,6 +26,7 @@
     value = $bindable(),
     name,
     size = "md",
+    orientation = "horizontal",
     disabled = false,
     onchange,
     class: className,
@@ -41,20 +43,10 @@
     value = optionValue;
     onchange?.(value);
   }
-
-  const containerSizes = {
-    md: "h-control-md p-1",
-    lg: "h-control-lg p-1"
-  };
-
-  const textSizes = {
-    md: "text-sm",
-    lg: "text-base"
-  };
 </script>
 
 {#snippet renderLabel(option: SegmentedOption)}
-  <div class="flex items-center justify-center gap-2 relative pointer-events-none">
+  <div class="segmented-content">
     {#if option.icon}
       {#if typeof option.icon === "function"}
         {@render (option.icon as Snippet)()}
@@ -65,7 +57,7 @@
     {/if}
 
     {#if option.label && !option.iconOnly}
-      <span class="leading-tight font-medium truncate">
+      <span class="segmented-label">
         {option.label}
       </span>
     {/if}
@@ -75,23 +67,17 @@
 <div
   role="radiogroup"
   aria-disabled={disabled}
-  class={cn(
-    "relative inline-flex items-center bg-secondaryControl rounded-control select-none isolate",
-    containerSizes[size],
-    isCompact ? "w-fit" : "w-full",
-    disabled && "opacity-60 cursor-not-allowed",
-    className
-  )}
+  class={cn("segmented-group", className)}
+  data-orientation={orientation}
+  data-size={size}
+  data-compact={isCompact}
   {...rest}
 >
   {#if name}
     <input type="hidden" {name} {value} />
   {/if}
 
-  <div
-    use:segmentedIndicator={activeElement}
-    class="absolute left-0 top-1 bottom-1 bg-white shadow-xs rounded-[calc(var(--radius-control)-4px)] z-10 ease-segmented pointer-events-none"
-  ></div>
+  <div use:segmentedIndicator={activeElement} class="segmented-indicator"></div>
 
   {#each options as option}
     {@const isSelected = value === option.value}
@@ -104,14 +90,8 @@
       aria-checked={isSelected}
       disabled={isDisabled}
       onclick={() => handleSelect(option.value, isDisabled)}
-      class={cn(
-        "group relative z-20 h-full rounded-[calc(var(--radius-control)-4px)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryControl/20",
-        "transition-colors duration-300 ease-out flex items-center justify-center",
-        textSizes[size],
-        option.iconOnly ? "aspect-square flex-none px-0" : "flex-1 px-3",
-        isDisabled ? "cursor-auto text-gray-400 opacity-50" : "cursor-pointer",
-        isSelected ? "text-primaryText" : "text-secondaryText hover:text-primaryText"
-      )}
+      class="segmented-item"
+      data-icon-only={option.iconOnly ?? false}
     >
       {@render renderLabel(option)}
     </button>

@@ -26,11 +26,9 @@
   });
 
   onMount(() => {
-    // Recuperar tema guardado al cargar la página
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) theme = savedTheme;
 
-    // Escuchar cambios del sistema si está en modo 'system'
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
       if (theme === "system") {

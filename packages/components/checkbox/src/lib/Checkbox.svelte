@@ -1,7 +1,7 @@
 <script lang="ts">
   import { draw } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
-  import { checkAnimation } from "@kori-ui/utilities";
+  import { cn, checkAnimation } from "@kori-ui/utilities";
 
   type CheckboxProps = {
     checked?: boolean;
@@ -30,23 +30,23 @@
   }
 </script>
 
-<div class="group flex items-start gap-3 select-none">
-  <div class="relative flex items-center mt-0.5">
-    <input {id} {name} type="checkbox" bind:checked {disabled} class="peer sr-only" />
+<div class="checkbox-group">
+  <div class="checkbox-container">
+    <input {id} {name} type="checkbox" bind:checked {disabled} />
 
     <div
       role="presentation"
       onclick={toggle}
       use:checkAnimation={checked}
-      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border-2 transition-all duration-200
-      {checked
-        ? 'bg-primaryControl border-primaryControl'
-        : 'bg-white border-secondaryControl group-hover:border-primaryControl/50'}
-      {disabled ? 'opacity-50 cursor-default bg-gray-100 border-gray-300' : 'cursor-pointer'}"
+      class={cn(
+        "checkbox-box",
+        checked && "checkbox-box--checked",
+        disabled && "checkbox-box--disabled"
+      )}
     >
       {#if checked}
         <svg
-          class="h-3.5 w-3.5 text-white"
+          class="checkbox-icon"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -70,15 +70,15 @@
   {#if label || description}
     <label
       for={id}
-      class="flex flex-col justify-center min-h-6 {disabled ? 'cursor-default' : 'cursor-pointer'}"
+      class={cn("checkbox-label-wrapper", disabled && "checkbox-label-wrapper--disabled")}
     >
       {#if label}
-        <span class="text-sm font-medium text-primaryText leading-tight">
+        <span class="checkbox-label">
           {label}
         </span>
       {/if}
       {#if description}
-        <span class="text-xs text-secondaryText mt-1">
+        <span class="checkbox-description">
           {description}
         </span>
       {/if}

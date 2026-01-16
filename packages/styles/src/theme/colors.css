@@ -1,0 +1,41 @@
+@layer base {
+  :root {
+    --color-surface: #ffffff;
+
+    --color-primaryText: #111827;
+    --color-secondaryText: #4b5563;
+    --color-placeholderText: #9ca3af;
+
+    --color-primaryControl: #ff3e00;
+    --color-primaryControlHover: #2563eb;
+    --color-secondaryControl: #e5e7eb;
+    --color-secondaryControlHover: #d1d5db;
+  }
+
+  :root.dark {
+    --color-surface: #101010;
+
+    --color-primaryText: #f9fafb;
+    --color-secondaryText: #7a7a7a;
+    --color-placeholderText: #6b7280;
+
+    --color-primaryControl: #ff3e00;
+    --color-primaryControlHover: #ff5921;
+
+    --color-secondaryControl: #181818;
+    --color-secondaryControlHover: #374151;
+  }
+}
+
+@theme {
+  --color-surface: var(--color-surface);
+
+  --color-primaryText: var(--color-primaryText);
+  --color-secondaryText: var(--color-secondaryText);
+  --color-placeholderText: var(--color-placeholderText);
+
+  --color-primaryControl: var(--color-primaryControl);
+  --color-primaryControlHover: var(--color-primaryControlHover);
+  --color-secondaryControl: var(--color-secondaryControl);
+  --color-secondaryControlHover: var(--color-secondaryControlHover);
+}

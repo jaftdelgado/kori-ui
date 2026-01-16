@@ -1,0 +1,50 @@
+@layer components {
+  .checkbox-group {
+    @apply flex items-start gap-3 select-none;
+  }
+
+  .checkbox-container {
+    @apply relative flex items-center justify-center h-5 w-5 mt-0.5;
+  }
+
+  .checkbox-container input[type="checkbox"] {
+    @apply absolute inset-0 opacity-0 cursor-pointer z-20 w-full h-full;
+  }
+
+  .checkbox-box {
+    @apply flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border-2 transition-all duration-200;
+    @apply bg-secondaryControl border-secondaryControl cursor-pointer;
+  }
+
+  .checkbox-group:hover .checkbox-box:not(.checkbox-box--disabled) {
+    @apply bg-secondaryControlHover border-secondaryControlHover;
+  }
+
+  .checkbox-box--checked {
+    @apply bg-primaryControl border-primaryControl;
+  }
+
+  .checkbox-box--disabled {
+    @apply opacity-50 cursor-default bg-gray-100 border-gray-300;
+  }
+
+  .checkbox-label-wrapper {
+    @apply flex flex-col justify-center min-h-6 cursor-pointer;
+  }
+
+  .checkbox-label-wrapper--disabled {
+    @apply cursor-default;
+  }
+
+  .checkbox-label {
+    @apply text-sm font-medium text-primaryText leading-tight;
+  }
+
+  .checkbox-description {
+    @apply text-xs text-secondaryText mt-1;
+  }
+
+  .checkbox-icon {
+    @apply h-3.5 w-3.5 text-white;
+  }
+}

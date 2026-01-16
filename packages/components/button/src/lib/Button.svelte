@@ -24,19 +24,10 @@
     ...rest
   }: Props = $props();
 
-  const variants: Record<string, string> = {
-    primary: "bg-primaryControl text-white hover:bg-primaryControlHover disabled:bg-gray-300",
-    secondary:
-      "bg-secondaryControl text-primaryText hover:bg-secondaryControlHover disabled:opacity-50",
-    ghost: "bg-transparent text-primaryText hover:bg-secondaryControl/50 disabled:opacity-30"
-  };
-
-  const sizes: Record<string, string> = {
-    sm: "h-9 px-4 text-sm gap-2",
-    md: "h-10 px-5 text-sm gap-2.5",
-    lg: "h-11 px-6 text-base gap-3"
-  };
-
+  /**
+   * Mantener los colores del ripple en el componente es correcto ya que
+   * dependen de la lógica de ejecución del script de utilidades.
+   */
   const rippleColors = {
     primary: "rgba(255, 255, 255, 0.35)",
     secondary: "rgba(0, 0, 0, 0.1)",
@@ -63,13 +54,7 @@
   {disabled}
   {...rest}
   use:clickRipple={{ color: rippleColors[variant] }}
-  class={cn(
-    "relative overflow-hidden inline-flex items-center justify-center rounded-control font-medium transition-colors duration-200 cursor-pointer disabled:cursor-auto",
-    "leading-none text-center whitespace-nowrap select-none",
-    variants[variant],
-    sizes[size],
-    className
-  )}
+  class={cn("button", `button--${variant}`, `button--${size}`, className)}
 >
   <span class="relative z-10 flex items-center justify-center gap-inherit">
     {@render renderContent(startContent)}

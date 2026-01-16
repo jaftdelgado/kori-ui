@@ -1,0 +1,94 @@
+@layer components {
+  .segmented-group {
+    @apply relative inline-flex bg-secondaryControl rounded-control select-none isolate p-1;
+  }
+
+  .segmented-group[data-orientation="horizontal"] {
+    @apply flex-row items-center;
+  }
+  .segmented-group[data-orientation="horizontal"][data-size="md"] {
+    @apply h-control-md;
+  }
+  .segmented-group[data-orientation="horizontal"][data-size="lg"] {
+    @apply h-control-lg;
+  }
+
+  .segmented-group[data-orientation="vertical"] {
+    @apply flex-col h-auto;
+  }
+
+  .segmented-group[data-compact="true"] {
+    @apply w-fit;
+  }
+  .segmented-group[data-compact="false"] {
+    @apply w-full;
+  }
+
+  .segmented-group[aria-disabled="true"] {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  .segmented-indicator {
+    @apply absolute bg-surface shadow-xs z-10 pointer-events-none;
+    @apply rounded-[calc(var(--radius-control)-4px)];
+    @apply transition-all duration-300 ease-out;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .segmented-item {
+    @apply relative z-20 flex items-center justify-center;
+    @apply rounded-[calc(var(--radius-control)-4px)];
+    @apply transition-colors duration-300 ease-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryControl/20;
+  }
+
+  .segmented-group[data-orientation="horizontal"] .segmented-item {
+    @apply h-full;
+  }
+
+  .segmented-group[data-orientation="vertical"][data-size="md"] .segmented-item {
+    @apply w-full flex-none h-9;
+  }
+  .segmented-group[data-orientation="vertical"][data-size="lg"] .segmented-item {
+    @apply w-full flex-none h-10;
+  }
+
+  .segmented-group[data-size="md"] .segmented-item {
+    @apply text-sm;
+  }
+  .segmented-group[data-size="lg"] .segmented-item {
+    @apply text-base;
+  }
+
+  .segmented-item[data-icon-only="true"] {
+    @apply aspect-square flex-none px-0;
+  }
+  .segmented-item[data-icon-only="false"] {
+    @apply flex-1 px-3;
+  }
+
+  .segmented-item[disabled] {
+    @apply cursor-auto text-secondaryText opacity-50;
+  }
+  .segmented-item:not([disabled]) {
+    @apply cursor-pointer;
+  }
+
+  .segmented-item[aria-checked="true"]:not([disabled]) {
+    @apply text-primaryText;
+  }
+
+  .segmented-item[aria-checked="false"]:not([disabled]) {
+    @apply text-secondaryText hover:text-primaryText;
+  }
+
+  .segmented-content {
+    @apply flex items-center justify-center gap-2 relative pointer-events-none;
+  }
+
+  .segmented-label {
+    @apply leading-tight font-medium truncate;
+  }
+}

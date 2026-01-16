@@ -1,0 +1,30 @@
+@layer components {
+  .button {
+    @apply relative overflow-hidden inline-flex items-center justify-center rounded-control font-medium transition-colors duration-200 cursor-pointer disabled:cursor-auto;
+    @apply leading-none text-center whitespace-nowrap select-none;
+  }
+
+  .button--primary {
+    @apply bg-primaryControl text-white hover:bg-primaryControlHover disabled:bg-gray-300;
+  }
+
+  .button--secondary {
+    @apply bg-secondaryControl text-primaryText hover:bg-secondaryControlHover disabled:opacity-50;
+  }
+
+  .button--ghost {
+    @apply bg-transparent text-primaryText hover:bg-secondaryControl/50 disabled:opacity-30;
+  }
+
+  .button--sm {
+    @apply h-9 px-4 text-sm gap-2;
+  }
+
+  .button--md {
+    @apply h-10 px-5 text-sm gap-2.5;
+  }
+
+  .button--lg {
+    @apply h-11 px-6 text-base gap-3;
+  }
+}

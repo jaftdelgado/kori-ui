@@ -25,7 +25,7 @@
 </script>
 
 <div
-  class="relative group bg-[#fafafa] font-mono text-sm leading-relaxed rounded-lg border border-gray-200 {className}"
+  class="relative group bg-surface font-mono text-sm leading-relaxed rounded-lg {className}"
 >
   <div class="absolute right-4 top-4 z-10 flex gap-2">
     <button
@@ -49,7 +49,7 @@
 
   {#if !isExpanded}
     <div
-      class="absolute inset-x-0 bottom-0 z-20 flex h-32 flex-col justify-end bg-linear-to-t from-[#fafafa] via-[#fafafa]/80 to-transparent pb-4 text-center rounded-b-lg"
+      class="absolute inset-x-0 bottom-0 z-20 flex h-32 flex-col justify-end bg-linear-to-t from-surface via-surface/80 to-transparent pb-4 text-center rounded-b-lg"
     >
       <button
         onclick={() => (isExpanded = true)}

@@ -29,30 +29,15 @@
     ...rest
   }: SliderProps = $props();
 
-  const trackHeights = {
-    sm: "h-4",
-    md: "h-5",
-    lg: "h-6"
-  };
-
   const thumbWidthsRem = {
     sm: "1.03125",
     md: "1.375",
     lg: "1.71875"
   };
 
-  const thumbSizes = {
-    sm: `h-3 w-[${thumbWidthsRem.sm}rem]`,
-    md: `h-4 w-[${thumbWidthsRem.md}rem]`,
-    lg: `h-5 w-[${thumbWidthsRem.lg}rem]`
-  };
-
   let trackRef: HTMLDivElement | undefined = $state();
-
   let isActive = $state(false);
-
   let isDragging = $state(false);
-
   let percentage = $derived((value - min) / (max - min));
 
   function updateValue(clientX: number) {
@@ -66,7 +51,6 @@
     const width = rect.width - padding * 2 - thumbWidthPx;
 
     let newValue = (x / width) * (max - min) + min;
-
     const stepCount = Math.round((newValue - min) / step);
     newValue = min + stepCount * step;
     newValue = Math.max(min, Math.min(max, newValue));
@@ -95,7 +79,6 @@
   function handlePointerMove(e: PointerEvent) {
     if (!isActive || disabled) return;
     if (!isDragging) isDragging = true;
-
     updateValue(e.clientX);
   }
 
@@ -108,68 +91,44 @@
 </script>
 
 <div
-  class={cn("group w-full flex flex-col gap-2 select-none", className)}
+  class={cn("slider-group", className)}
   style:--thumb-width="{thumbWidthsRem[size]}rem"
   style:--padding="0.125rem"
+  style:--percentage={percentage}
 >
-  <div class="relative flex items-center w-full">
-    <input {id} type="range" class="sr-only" bind:value {min} {max} {step} {disabled} {...rest} />
+  <div class="slider-container">
+    <input {id} type="range" bind:value {min} {max} {step} {disabled} {...rest} />
 
     <div
       bind:this={trackRef}
       onpointerdown={handleTrackDown}
       onpointermove={handlePointerMove}
       onpointerup={handlePointerUp}
-      class={cn(
-        "relative w-full flex items-center bg-gray-200 rounded-full cursor-pointer overflow-hidden touch-none",
-        trackHeights[size],
-        disabled && "opacity-50 cursor-not-allowed bg-gray-200"
-      )}
+      class={cn("slider-track", `slider-track--${size}`, disabled && "slider-track--disabled")}
     >
-      <div
-        use:sliderAnimation={isDragging}
-        class="absolute left-0 top-0 bottom-0 bg-primaryControl h-full rounded-r-full will-change-width"
-        style:width="calc( (var(--padding) + ({percentage} * (100% - var(--thumb-width) - (var(--padding)
-        * 2)))) + var(--thumb-width) + var(--padding) )"
-      ></div>
+      <div use:sliderAnimation={isDragging} class="slider-fill"></div>
 
       <div
         onpointerdown={handleThumbDown}
         use:sliderAnimation={isDragging}
-        class="absolute top-1/2 -translate-y-1/2 will-change-left"
-        style:left="calc(var(--padding) + ({percentage} * (100% - var(--thumb-width) - (var(--padding)
-        * 2))))"
+        class="slider-thumb-wrapper"
       >
-        <span
-          class={cn(
-            "block rounded-full bg-white ring-0 pointer-events-none",
-            "transition-all duration-150 ease-out",
-            isActive ? "scale-90 shadow-sm" : "scale-100 shadow",
-            thumbSizes[size]
-          )}
-        ></span>
+        <span data-active={isActive} class={cn("slider-thumb", `slider-thumb--${size}`)}></span>
       </div>
     </div>
   </div>
 
   {#if label || description}
-    <div class="flex justify-between items-center px-1">
-      <label for={id} class="flex flex-col {disabled ? 'cursor-not-allowed' : 'cursor-pointer'}">
+    <div class="slider-info">
+      <label for={id} class={cn("slider-label-wrapper", disabled && "cursor-not-allowed")}>
         {#if label}
-          <span class="text-sm font-medium text-primaryText leading-none">
-            {label}
-          </span>
+          <span class="slider-label">{label}</span>
         {/if}
         {#if description}
-          <span class="text-xs text-secondaryText mt-1">
-            {description}
-          </span>
+          <span class="slider-description">{description}</span>
         {/if}
       </label>
-
-      <span class="text-xs font-medium text-secondaryText tabular-nums">
-        {value}
-      </span>
+      <span class="slider-value">{value}</span>
     </div>
   {/if}
 </div>

@@ -53,11 +53,8 @@
 <div
   role="radiogroup"
   aria-orientation={orientation}
-  class={cn(
-    "flex",
-    orientation === "vertical" ? "flex-col gap-3" : "flex-row gap-4 flex-wrap",
-    className
-  )}
+  class={cn("radio-group", className)}
+  data-orientation={orientation}
   {...rest}
 >
   {@render children()}

@@ -1,0 +1,100 @@
+@layer components {
+  .radio-group {
+    @apply flex;
+  }
+
+  .radio-group[data-orientation="vertical"] {
+    @apply flex-col gap-3;
+  }
+
+  .radio-group[data-orientation="horizontal"] {
+    @apply flex-row gap-4 flex-wrap;
+  }
+
+  .radio-label {
+    @apply flex items-start gap-3 relative select-none cursor-pointer;
+  }
+
+  .radio-label[data-disabled="true"] {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .radio-input {
+    @apply sr-only;
+  }
+
+  .radio-control-container {
+    @apply relative flex items-center justify-center h-full pt-0.5;
+  }
+
+  .radio-control {
+    @apply rounded-full flex items-center justify-center transition-all duration-200 ease-out border border-transparent;
+    @apply bg-secondaryControl;
+
+    .radio-label:focus-within & {
+      @apply ring-2 ring-primaryControl/20;
+    }
+  }
+
+  .radio-label:not([data-disabled="true"]):not([data-state="checked"]):hover .radio-control {
+    @apply bg-secondaryControlHover;
+  }
+
+  .radio-label[data-state="checked"] .radio-control {
+    @apply bg-primaryControl shadow-sm;
+  }
+
+  .radio-label:not([data-disabled="true"])[data-state="checked"]:hover .radio-control {
+    @apply bg-primaryControlHover;
+  }
+
+  .radio-control--sm {
+    @apply h-4 w-4;
+  }
+  .radio-control--md {
+    @apply h-5 w-5;
+  }
+  .radio-control--lg {
+    @apply h-6 w-6;
+  }
+
+  .radio-dot {
+    @apply rounded-full bg-white shadow-sm;
+    @apply transition-transform duration-200 ease-[cubic-bezier(0.2,0.8,0.2,1)];
+    transform: scale(0);
+  }
+
+  .radio-label[data-state="checked"] .radio-dot {
+    transform: scale(1);
+  }
+
+  .radio-dot--sm {
+    @apply h-1.5 w-1.5;
+  }
+  .radio-dot--md {
+    @apply h-2 w-2;
+  }
+  .radio-dot--lg {
+    @apply h-2.5 w-2.5;
+  }
+
+  .radio-text-wrapper {
+    @apply flex flex-col;
+  }
+
+  .radio-text-label {
+    @apply font-medium text-primaryText leading-tight;
+  }
+
+  .radio-text-label--sm,
+  .radio-text-label--md {
+    @apply text-sm;
+  }
+  .radio-text-label--lg {
+    @apply text-base;
+  }
+
+  .radio-text-description {
+    @apply text-xs text-secondaryText mt-1 leading-normal;
+  }
+}

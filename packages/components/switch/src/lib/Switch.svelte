@@ -28,33 +28,15 @@
     checked = !checked;
     onchange?.(checked);
   }
-
-  const trackSizes = {
-    sm: "h-4 w-8",
-    md: "h-5 w-10",
-    lg: "h-6 w-12"
-  };
-
-  const thumbSizes = {
-    sm: "h-3 w-[1.03125rem]",
-    md: "h-4 w-[1.375rem]",
-    lg: "h-5 w-[1.71875rem]"
-  };
-
-  const thumbTranslate = {
-    sm: "translate-x-[0.71875rem]",
-    md: "translate-x-[0.875rem]",
-    lg: "translate-x-[1.03125rem]"
-  };
 </script>
 
-<div class={cn("group inline-flex items-start gap-3 select-none", className)}>
-  <div class="relative flex items-center">
+<div class={cn("switch-group", className)}>
+  <div class="switch-container">
     <input
       {id}
       type="checkbox"
       role="switch"
-      class="peer sr-only"
+      class="peer switch-input"
       bind:checked
       {disabled}
       onclick={toggle}
@@ -62,37 +44,27 @@
     />
 
     <div
-      class={cn(
-        "flex items-center p-0.5 bg-gray-200 peer-focus:ring-2 peer-focus:ring-primaryControl/20 transition-colors duration-300 ease-switch-custom rounded-full cursor-pointer",
-        trackSizes[size],
-        checked ? "bg-primaryControl" : "bg-secondaryControl group-hover:bg-secondaryControlHover",
-        disabled && "opacity-50 cursor-not-allowed bg-gray-200 group-hover:bg-gray-200"
-      )}
+      class={cn("switch-track", `switch-track--${size}`)}
       onclick={toggle}
       role="presentation"
+      data-state={checked ? "checked" : "unchecked"}
+      data-disabled={disabled}
     >
       <span
         use:switchAnimation={size}
-        class={cn(
-          "pointer-events-none block rounded-full bg-white shadow ring-0 transition-all duration-300 ease-switch-custom",
-          thumbSizes[size],
-          checked ? thumbTranslate[size] : "translate-x-0"
-        )}
+        class={cn("switch-thumb", `switch-thumb--${size}`)}
+        data-state={checked ? "checked" : "unchecked"}
       ></span>
     </div>
   </div>
 
   {#if label || description}
-    <label for={id} class="flex flex-col cursor-pointer {disabled ? 'cursor-not-allowed' : ''}">
+    <label for={id} class="switch-label-wrapper" data-disabled={disabled} data-size={size}>
       {#if label}
-        <span class="text-sm font-medium text-primaryText leading-none mt-1">
-          {label}
-        </span>
+        <span class="switch-label">{label}</span>
       {/if}
       {#if description}
-        <span class="text-xs text-secondaryText mt-1">
-          {description}
-        </span>
+        <span class="switch-description">{description}</span>
       {/if}
     </label>
   {/if}

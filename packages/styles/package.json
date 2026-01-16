@@ -1,0 +1,21 @@
+{
+  "name": "@kori-ui/styles",
+  "version": "0.0.2-alpha.0",
+  "description": "Core styles and Tailwind v4 configuration for kori-ui",
+  "type": "module",
+  "main": "./src/index.css",
+  "exports": {
+    ".": "./src/index.css",
+    "./components/*": "./src/components/*.css",
+    "./theme/*": "./src/theme/*.css"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}
