@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@kori-ui/styles": "workspace:*",
-    "@kori-ui/core": "workspace:*",
     "@kori-ui/utilities": "workspace:*",
     "@kori-ui/button": "workspace:*",
     "@kori-ui/checkbox": "workspace:*"

@@ -26,7 +26,6 @@
       "dependencies": {
         "@kori-ui/button": "workspace:*",
         "@kori-ui/checkbox": "workspace:*",
-        "@kori-ui/core": "workspace:*",
         "@kori-ui/styles": "workspace:*",
         "@kori-ui/utilities": "workspace:*",
       },
@@ -43,9 +42,9 @@
     },
     "packages/components/button": {
       "name": "@kori-ui/button",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -53,9 +52,9 @@
     },
     "packages/components/checkbox": {
       "name": "@kori-ui/checkbox",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -63,9 +62,9 @@
     },
     "packages/components/radio": {
       "name": "@kori-ui/radio",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -73,7 +72,7 @@
     },
     "packages/components/segmented-control": {
       "name": "@kori-ui/segmented-control",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
         "@kori-ui/utilities": "workspace:*",
       },
@@ -83,9 +82,9 @@
     },
     "packages/components/slider": {
       "name": "@kori-ui/slider",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -93,9 +92,9 @@
     },
     "packages/components/switch": {
       "name": "@kori-ui/switch",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -103,9 +102,9 @@
     },
     "packages/components/tabs": {
       "name": "@kori-ui/tabs",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -113,30 +112,26 @@
     },
     "packages/components/text": {
       "name": "@kori-ui/text",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
       },
     },
-    "packages/core": {
-      "name": "@kori-ui/core",
-      "version": "0.0.2-alpha.0",
-    },
     "packages/kori-ui": {
       "name": "@kori-ui/svelte",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
-        "@kori-ui/button": "workspace:*",
-        "@kori-ui/core": "workspace:*",
-        "@kori-ui/radio": "workspace:*",
-        "@kori-ui/slider": "workspace:*",
-        "@kori-ui/switch": "workspace:*",
-        "@kori-ui/tabs": "workspace:*",
-        "@kori-ui/text": "workspace:*",
-        "@kori-ui/utilities": "workspace:*",
+        "@kori-ui/button": "^0.0.2-alpha.1",
+        "@kori-ui/radio": "^0.0.2-alpha.1",
+        "@kori-ui/slider": "^0.0.2-alpha.1",
+        "@kori-ui/styles": "^0.0.2-alpha.1",
+        "@kori-ui/switch": "^0.0.2-alpha.1",
+        "@kori-ui/tabs": "^0.0.2-alpha.1",
+        "@kori-ui/text": "^0.0.2-alpha.1",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -144,14 +139,14 @@
     },
     "packages/styles": {
       "name": "@kori-ui/styles",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "devDependencies": {
         "tailwindcss": "^4.0.0",
       },
     },
     "packages/utilities": {
       "name": "@kori-ui/utilities",
-      "version": "0.0.2-alpha.0",
+      "version": "0.0.2-alpha.1",
       "dependencies": {
         "clsx": "^2.1.1",
         "tailwind-merge": "^3.4.0",
@@ -288,8 +283,6 @@
     "@kori-ui/button": ["@kori-ui/button@workspace:packages/components/button"],
 
     "@kori-ui/checkbox": ["@kori-ui/checkbox@workspace:packages/components/checkbox"],
-
-    "@kori-ui/core": ["@kori-ui/core@workspace:packages/core"],
 
     "@kori-ui/radio": ["@kori-ui/radio@workspace:packages/components/radio"],
 
