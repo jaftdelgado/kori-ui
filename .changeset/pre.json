@@ -1,0 +1,21 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "docs": "0.0.1",
+    "@kori-ui/button": "0.0.1",
+    "@kori-ui/checkbox": "0.0.1",
+    "@kori-ui/radio": "0.0.1",
+    "@kori-ui/segmented-control": "0.0.1",
+    "@kori-ui/slider": "0.0.1",
+    "@kori-ui/switch": "0.0.1",
+    "@kori-ui/tabs": "0.0.1",
+    "@kori-ui/text": "0.0.1",
+    "@kori-ui/core": "0.0.1",
+    "@kori-ui/svelte": "0.0.1",
+    "@kori-ui/utilities": "0.0.1"
+  },
+  "changesets": [
+    "hot-clowns-sin"
+  ]
+}

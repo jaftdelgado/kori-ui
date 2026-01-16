@@ -14,7 +14,9 @@
     "build": "bun --filter \"*\" build",
     "gen": "bun scripts/create-component.ts",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
