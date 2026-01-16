@@ -20,7 +20,6 @@ yarn-error.log*
 # environment variables
 .env*
 !.env.example
-.npmrc
 
 # caches y herramientas
 .eslintcache

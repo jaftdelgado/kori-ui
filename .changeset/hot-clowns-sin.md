@@ -10,6 +10,7 @@
 "@kori-ui/utilities": patch
 "@kori-ui/svelte": patch
 "@kori-ui/core": patch
+"@kori-ui/styles": patch
 ---
 
 Initial alpha release of Kori UI library
