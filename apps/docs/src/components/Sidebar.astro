@@ -1,0 +1,58 @@
+---
+const posts = await Astro.glob("../pages/docs/components/*.mdx");
+
+const components = posts.map((post) => {
+  const url = post.url;
+  const name = post.frontmatter.title?.split('|')[0].trim() || 
+               url?.split('/').pop()?.replace(/-/g, ' ');
+  
+  return { name, url };
+});
+
+const { pathname } = Astro.url;
+const normalizePath = (path: string) => path.replace(/\/$/, "");
+---
+
+<nav class="space-y-8">
+  <div>
+    <h4 class="text-xs font-bold mb-4 text-orange-500 uppercase tracking-widest px-2">
+      General
+    </h4>
+    <ul class="space-y-1">
+      <li>
+        <a 
+          href="/docs/introduction" 
+          class={`block px-3 py-2 text-sm rounded-md transition-colors ${
+            normalizePath(pathname) === "/docs/introduction" 
+            ? "bg-orange-500/10 text-orange-500 font-medium" 
+            : "text-zinc-400 hover:text-white hover:bg-zinc-900"
+          }`}
+        >
+          Introducción
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 class="text-xs font-semibold mb-4 text-secondaryText uppercase px-2">
+      Componentes
+    </h4>
+    <ul>
+      {components.sort((a, b) => a.name.localeCompare(b.name)).map((comp) => (
+        <li>
+          <a 
+            href={comp.url} 
+            class={` px-4 h-9 items-center inline-flex text-sm rounded-xl  transition-colors ${
+              normalizePath(pathname) === normalizePath(comp.url || "") 
+              ? "bg-secondaryControl text-primaryText font-medium" 
+              : "text-secondaryText hover:text-primaryText"
+            }`}
+          >
+            {comp.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

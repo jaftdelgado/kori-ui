@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "./theme/colors.css";
-@import "./theme/animations.css";
-@import "./theme/dimensions.css";
 
+@import "./theme/index.css";
 @import "./components/index.css";

@@ -1,0 +1,68 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+title: "Button | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+
+import ButtonUsage from "@examples/button/ButtonUsage.svelte";
+import ButtonUsageCode from "@examples/button/ButtonUsage.svelte?raw";
+
+import ButtonVariants from "@examples/button/ButtonVariants.svelte";
+import ButtonVariantsCode from "@examples/button/ButtonVariants.svelte?raw";
+
+import ButtonSizes from "@examples/button/ButtonSizes.svelte";
+import ButtonSizesCode from "@examples/button/ButtonSizes.svelte?raw";
+
+import ButtonContent from "@examples/button/ButtonContent.svelte";
+import ButtonContentCode from "@examples/button/ButtonContent.svelte?raw";
+
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+# Button
+
+Interactive element that allows action to be taken and desicions to be made with a click.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/button/src/lib/Button.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/button/src/lib/button.css"
+/>
+
+<ComponentExample code={ButtonUsageCode}>
+  <ButtonUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Variants
+
+<ComponentExample code={ButtonVariantsCode}>
+  <ButtonVariants client:load />
+</ComponentExample>
+
+### Sizes
+
+<ComponentExample code={ButtonSizesCode}>
+  <ButtonSizes client:load />
+</ComponentExample>
+
+### Start & End Content
+
+<ComponentExample code={ButtonContentCode}>
+  <ButtonContent client:load />
+</ComponentExample>
+
+---
+
+## API Reference
+
+The `Button` component accepts the following properties through Svelte 5 runes.
+
+| Prop           | Type                                  | Default     | Description                              |
+| :------------- | :------------------------------------ | :---------- | :--------------------------------------- |
+| `variant`      | `'primary' \| 'secondary' \| 'ghost'` | `'primary'` | Defines the visual style of the button.  |
+| `size`         | `'sm' \| 'md' \| 'lg'`                | `'md'`      | Sets the vertical scale and padding.     |
+| `disabled`     | `boolean`                             | `false`     | Prevents user interaction when true.     |
+| `startContent` | `Snippet \| Component \| string`      | `undefined` | Content placed before the label (icons). |
+| `endContent`   | `Snippet \| Component \| string`      | `undefined` | Content placed after the label (icons).  |

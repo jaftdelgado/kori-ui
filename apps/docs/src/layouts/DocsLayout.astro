@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+import Sidebar from "@components/Sidebar.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+
+interface Props {
+  title?: string;
+  headings?: { depth: number; slug: string; text: string }[];
+}
+
+const { title = "Kori UI Docs", headings = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased overflow-hidden">
+    <nav class="fixed top-0 z-50 w-full h-16 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md px-6 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-orange-500 rounded-lg shadow-lg shadow-orange-500/20"></div>
+        <span class="font-bold text-xl tracking-tighter text-white uppercase">KORI UI</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/jaftdelgado/kori-ui" target="_blank" class="text-sm text-zinc-400 hover:text-white transition-colors">GitHub</a>
+      </div>
+    </nav>
+
+    <div class="flex pt-16 h-screen">
+      <aside class="hidden md:flex flex-col w-72 overflow-y-auto p-6 shrink-0">
+        <Sidebar />
+      </aside>
+
+      <main class="flex-1 overflow-y-auto p-8 md:p-12 custom-scrollbar relative scroll-smooth prose-content">
+        <div class="max-w-2xl mx-auto w-full">
+          <slot />
+        </div>
+      </main>
+
+      <aside class="hidden lg:flex flex-col w-72 overflow-y-auto p-8 shrink-0">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+title: "Segmented Control | Kori UI"
+---
+
+import Showcase from "../../../components/Showcase.svelte";
+
+# Segmented Control
+
+Aquí puedes ver el componente funcionando:
+
+<Showcase
+  client:load
+  value="test"
+  options={[
+    { value: "test", label: "Test" },
+    { value: "demo", label: "Demo" }
+  ]}
+/>

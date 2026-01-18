@@ -1,13 +1,12 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "moduleResolution": "bundler",
-    "module": "esnext",
-    "target": "esnext",
-    "checkJs": true,
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@examples/*": ["src/examples/*"],
+      "@components/*": ["src/components/*"]
+    }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
