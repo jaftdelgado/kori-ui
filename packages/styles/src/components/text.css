@@ -1,0 +1,21 @@
+@layer components {
+  .text--title {
+    @apply text-4xl font-semibold text-primaryText tracking-tight leading-tight;
+  }
+
+  .text--subtitle {
+    @apply text-3xl font-medium text-primaryText tracking-tight leading-snug;
+  }
+
+  .text--headline {
+    @apply text-base font-medium text-primaryText tracking-normal leading-snug;
+  }
+
+  .text--body {
+    @apply text-sm font-normal text-primaryText tracking-normal leading-snug;
+  }
+
+  .text--description {
+    @apply text-xs font-normal text-secondaryText tracking-wide leading-normal;
+  }
+}

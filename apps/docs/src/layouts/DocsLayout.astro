@@ -20,7 +20,7 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased overflow-hidden">
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
     <nav class="fixed top-0 z-50 w-full h-16 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md px-6 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <div class="w-8 h-8 bg-orange-500 rounded-lg shadow-lg shadow-orange-500/20"></div>
@@ -31,18 +31,18 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
       </div>
     </nav>
 
-    <div class="flex pt-16 h-screen">
-      <aside class="hidden md:flex flex-col w-72 overflow-y-auto p-6 shrink-0">
+    <div class="flex pt-16 min-h-screen max-w-360 mx-auto">
+      <aside class="hidden md:flex flex-col w-72 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto p-6 shrink-0">
         <Sidebar />
       </aside>
 
-      <main class="flex-1 overflow-y-auto p-8 md:p-12 custom-scrollbar relative scroll-smooth prose-content">
+      <main class="flex-1 p-4 md:p-12 prose-content">
         <div class="max-w-2xl mx-auto w-full">
           <slot />
         </div>
       </main>
 
-      <aside class="hidden lg:flex flex-col w-72 overflow-y-auto p-8 shrink-0">
+      <aside class="hidden lg:flex flex-col w-72 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto p-8 shrink-0">
         <TableOfContents headings={headings} />
       </aside>
     </div>

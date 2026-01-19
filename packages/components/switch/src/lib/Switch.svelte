@@ -8,6 +8,7 @@
     size?: "sm" | "md" | "lg";
     label?: string;
     description?: string;
+    labelPosition?: "before" | "after";
     onchange?: (checked: boolean) => void;
   }
 
@@ -17,6 +18,7 @@
     size = "md",
     label,
     description,
+    labelPosition = "after",
     class: className,
     id = crypto.randomUUID(),
     onchange,
@@ -30,7 +32,7 @@
   }
 </script>
 
-<div class={cn("switch-group", className)}>
+<div class={cn("switch-group", labelPosition === "before" && "switch-group--reverse", className)}>
   <div class="switch-container">
     <input
       {id}
@@ -59,7 +61,13 @@
   </div>
 
   {#if label || description}
-    <label for={id} class="switch-label-wrapper" data-disabled={disabled} data-size={size}>
+    <label
+      for={id}
+      class="switch-label-wrapper"
+      data-disabled={disabled}
+      data-size={size}
+      data-position={labelPosition}
+    >
       {#if label}
         <span class="switch-label">{label}</span>
       {/if}

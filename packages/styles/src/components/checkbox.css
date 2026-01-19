@@ -8,7 +8,8 @@
   }
 
   .checkbox-container input[type="checkbox"] {
-    @apply absolute inset-0 opacity-0 cursor-pointer z-20 w-full h-full;
+    @apply absolute inset-0 opacity-0 z-20 w-full h-full;
+    @apply cursor-pointer disabled:cursor-auto;
   }
 
   .checkbox-box {
@@ -16,16 +17,21 @@
     @apply bg-secondaryControl border-secondaryControl cursor-pointer;
   }
 
-  .checkbox-group:hover .checkbox-box:not(.checkbox-box--disabled) {
+  .checkbox-group:not(:has(input:disabled)):hover .checkbox-box:not(.checkbox-box--checked) {
     @apply bg-secondaryControlHover border-secondaryControlHover;
   }
 
+  .checkbox-group:not(:has(input:disabled)):hover .checkbox-box--checked {
+    @apply bg-primaryControlHover border-primaryControlHover;
+  }
+
   .checkbox-box--checked {
-    @apply bg-primaryControl border-primaryControl;
+    @apply bg-primaryControl border-0;
+    @apply material-elevated;
   }
 
   .checkbox-box--disabled {
-    @apply opacity-50 cursor-default bg-gray-100 border-gray-300;
+    @apply opacity-30 cursor-auto;
   }
 
   .checkbox-label-wrapper {
@@ -33,7 +39,7 @@
   }
 
   .checkbox-label-wrapper--disabled {
-    @apply cursor-default;
+    @apply cursor-auto;
   }
 
   .checkbox-label {

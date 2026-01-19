@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@examples/*": ["src/examples/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

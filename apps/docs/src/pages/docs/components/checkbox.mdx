@@ -1,0 +1,57 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Checkbox | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import CheckboxUsage from "@examples/checkbox/CheckboxUsage.svelte";
+import CheckboxUsageCode from "@examples/checkbox/CheckboxUsage.svelte?raw";
+
+import CheckboxDescription from "@examples/checkbox/CheckboxDescription.svelte";
+import CheckboxDescriptionCode from "@examples/checkbox/CheckboxDescription.svelte?raw";
+
+import CheckboxDisabled from "@examples/checkbox/CheckboxDisabled.svelte";
+import CheckboxDisabledCode from "@examples/checkbox/CheckboxDisabled.svelte?raw";
+
+# Checkbox
+
+A control that allows the user to select one or more items from a set.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/checkbox/src/lib/Checkbox.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/checkbox/src/lib/checkbox.css"
+/>
+
+<ComponentExample code={CheckboxUsageCode}>
+  <CheckboxUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### With Description
+
+<ComponentExample code={CheckboxDescriptionCode}>
+  <CheckboxDescription client:load />
+</ComponentExample>
+
+### Disabled
+
+<ComponentExample code={CheckboxDisabledCode}>
+  <CheckboxDisabled client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Checkbox` component uses Svelte 5 runes for reactivity and state binding.
+
+| Prop          | Type                         | Default     | Description                                       |
+| :------------ | :--------------------------- | :---------- | :------------------------------------------------ |
+| `checked`     | `boolean`                    | `false`     | **$bindable**. The current state of the checkbox. |
+| `label`       | `string`                     | `undefined` | Main text displayed next to the checkbox.         |
+| `description` | `string`                     | `undefined` | Supplementary text displayed under the label.     |
+| `disabled`    | `boolean`                    | `false`     | Disables interaction and dims the opacity.        |
+| `name`        | `string`                     | `undefined` | The name attribute for form submission.           |
+| `onchange`    | `(checked: boolean) => void` | `undefined` | Callback fired when the checked state changes.    |

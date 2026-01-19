@@ -1,0 +1,77 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Switch | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import SwitchUsage from "@examples/switch/SwitchUsage.svelte";
+import SwitchUsageCode from "@examples/switch/SwitchUsage.svelte?raw";
+
+import SwitchSizes from "@examples/switch/SwitchSizes.svelte";
+import SwitchSizesCode from "@examples/switch/SwitchSizes.svelte?raw";
+
+import SwitchLabel from "@examples/switch/SwitchLabel.svelte";
+import SwitchLabelCode from "@examples/switch/SwitchLabel.svelte?raw";
+
+import SwitchDisabled from "@examples/switch/SwitchDisabled.svelte";
+import SwitchDisabledCode from "@examples/switch/SwitchDisabled.svelte?raw";
+
+import SwitchOrientation from "@examples/switch/SwitchOrientation.svelte";
+import SwitchOrientationCode from "@examples/switch/SwitchOrientation.svelte?raw";
+
+# Switch
+
+A control that allows the user to toggle between checked and unchecked states.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/switch/src/lib/Switch.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/switch/src/lib/switch.css"
+/>
+
+<ComponentExample code={SwitchUsageCode}>
+  <SwitchUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+<ComponentExample code={SwitchSizesCode}>
+  <SwitchSizes client:load />
+</ComponentExample>
+
+### Label & Description
+
+<ComponentExample code={SwitchLabelCode}>
+  <SwitchLabel client:load />
+</ComponentExample>
+
+### Label Position
+
+<ComponentExample code={SwitchOrientationCode}>
+  <SwitchOrientation client:load />
+</ComponentExample>
+
+### Disabled
+
+<ComponentExample code={SwitchDisabledCode}>
+  <SwitchDisabled client:load />
+</ComponentExample>
+
+---
+
+## API Reference
+
+The `Switch` component uses Svelte 5 runes for reactivity and state binding.
+
+| Prop          | Type                         | Default     | Description                                     |
+| :------------ | :--------------------------- | :---------- | :---------------------------------------------- |
+| `checked`     | `boolean`                    | `false`     | **$bindable**. The current state of the switch. |
+| `size`        | `'sm' \| 'md' \| 'lg'`       | `'md'`      | Sets the scale of the track and thumb.          |
+| `disabled`    | `boolean`                    | `false`     | Disables interaction and dims the opacity.      |
+| `label`       | `string`                     | `undefined` | Main text displayed next to the switch.         |
+| `description` | `string`                     | `undefined` | Supplementary text displayed under the label.   |
+| `onchange`    | `(checked: boolean) => void` | `undefined` | Callback fired when the toggle state changes.   |

@@ -1,0 +1,81 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Radio Group | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import RadioUsage from "@examples/radio/RadioUsage.svelte";
+import RadioUsageCode from "@examples/radio/RadioUsage.svelte?raw";
+
+import RadioSizes from "@examples/radio/RadioSizes.svelte";
+import RadioSizesCode from "@examples/radio/RadioSizes.svelte?raw";
+
+import RadioOrientation from "@examples/radio/RadioOrientation.svelte";
+import RadioOrientationCode from "@examples/radio/RadioOrientation.svelte?raw";
+
+import RadioDisabled from "@examples/radio/RadioDisabled.svelte";
+import RadioDisabledCode from "@examples/radio/RadioDisabled.svelte?raw";
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one button can be checked at a time.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/tree/main/packages/components/radio/src/lib"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/radio/src/lib/radio.css"
+/>
+
+<ComponentExample code={RadioUsageCode}>
+  <RadioUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+Radio buttons support `sm`, `md`, and `lg` sizes which are inherited from the `RadioGroup`.
+
+<ComponentExample code={RadioSizesCode}>
+  <RadioSizes client:load />
+</ComponentExample>
+
+### Orientation
+
+By default, the orientation is `vertical`, but it can be set to `horizontal`.
+
+<ComponentExample code={RadioOrientationCode}>
+  <RadioOrientation client:load />
+</ComponentExample>
+
+### Disabled
+
+Radios can be disabled individually or by disabling the entire group.
+
+<ComponentExample code={RadioDisabledCode}>
+  <RadioDisabled client:load />
+</ComponentExample>
+
+## API Reference
+
+### RadioGroup
+
+| Prop          | Type                         | Default      | Description                               |
+| :------------ | :--------------------------- | :----------- | :---------------------------------------- |
+| `value`       | `any`                        | `undefined`  | **$bindable**. Current selected value.    |
+| `name`        | `string`                     | `UUID`       | Name attribute for the radio inputs.      |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`       | Controls the size of all children radios. |
+| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout direction of the group.            |
+| `disabled`    | `boolean`                    | `false`      | Disables all radios within the group.     |
+| `onchange`    | `(value: any) => void`       | `undefined`  | Callback fired when selection changes.    |
+
+### Radio
+
+| Prop          | Type      | Default      | Description                                   |
+| :------------ | :-------- | :----------- | :-------------------------------------------- |
+| `value`       | `any`     | **Required** | The value assigned to this radio button.      |
+| `label`       | `string`  | `undefined`  | The label text displayed next to the radio.   |
+| `description` | `string`  | `undefined`  | Descriptive text under the label.             |
+| `disabled`    | `boolean` | `false`      | Disables interaction for this specific radio. |

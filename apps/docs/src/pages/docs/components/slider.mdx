@@ -1,0 +1,75 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Slider | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import SliderUsage from "@examples/slider/SliderUsage.svelte";
+import SliderUsageCode from "@examples/slider/SliderUsage.svelte?raw";
+
+import SliderSizes from "@examples/slider/SliderSizes.svelte";
+import SliderSizesCode from "@examples/slider/SliderSizes.svelte?raw";
+
+import SliderStep from "@examples/slider/SliderStep.svelte";
+import SliderStepCode from "@examples/slider/SliderStep.svelte?raw";
+
+import SliderDisabled from "@examples/slider/SliderDisabled.svelte";
+import SliderDisabledCode from "@examples/slider/SliderDisabled.svelte?raw";
+
+# Slider
+
+A control that allows users to make selections from a range of values.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/slider/src/lib/Slider.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/slider/src/lib/slider.css"
+/>
+
+<ComponentExample code={SliderUsageCode}>
+  <SliderUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+Available in `sm`, `md` (default), and `lg`.
+
+<ComponentExample code={SliderSizesCode}>
+  <SliderSizes client:load />
+</ComponentExample>
+
+### Steps
+
+Use the `step` prop to change the granularity of the slider.
+
+<ComponentExample code={SliderStepCode}>
+  <SliderStep client:load />
+</ComponentExample>
+
+### Disabled
+
+Prevents user interaction and visually dims the component.
+
+<ComponentExample code={SliderDisabledCode}>
+  <SliderDisabled client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Slider` component uses Svelte 5 runes and pointer events for a smooth experience.
+
+| Prop          | Type                      | Default     | Description                                     |
+| :------------ | :------------------------ | :---------- | :---------------------------------------------- |
+| `value`       | `number`                  | `0`         | **$bindable**. The current value of the slider. |
+| `min`         | `number`                  | `0`         | The minimum allowed value.                      |
+| `max`         | `number`                  | `100`       | The maximum allowed value.                      |
+| `step`        | `number`                  | `1`         | The increment between selectable values.        |
+| `size`        | `"sm" \| "md" \| "lg"`    | `"md"`      | The visual scale of the component.              |
+| `label`       | `string`                  | `undefined` | Label text displayed above the slider.          |
+| `description` | `string`                  | `undefined` | Secondary text displayed under the label.       |
+| `disabled`    | `boolean`                 | `false`     | Whether the slider is interactive.              |
+| `onchange`    | `(value: number) => void` | `undefined` | Callback fired when the value changes.          |

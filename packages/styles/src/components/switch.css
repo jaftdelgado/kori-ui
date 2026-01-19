@@ -3,6 +3,10 @@
     @apply inline-flex items-start gap-3 select-none;
   }
 
+  .switch-group--reverse {
+    @apply flex-row-reverse justify-end;
+  }
+
   .switch-container {
     @apply relative flex items-center flex-shrink-0;
   }
@@ -47,7 +51,7 @@
   }
 
   .switch-thumb {
-    @apply block rounded-full bg-white shadow ring-0 pointer-events-none;
+    @apply block rounded-full bg-white shadow ring-0 pointer-events-none material-elevated-light;
     @apply transition-all duration-200 ease-out;
 
     will-change: transform, width;
@@ -81,8 +85,13 @@
   .switch-label-wrapper {
     @apply flex flex-col cursor-pointer;
   }
+
+  .switch-label-wrapper[data-position="before"] {
+    @apply text-right;
+  }
+
   .switch-label-wrapper[data-disabled="true"] {
-    @apply cursor-not-allowed;
+    @apply cursor-auto;
   }
 
   .switch-label {

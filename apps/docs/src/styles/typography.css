@@ -1,38 +1,51 @@
-.prose-content {
-  & h1 {
-    @apply text-primaryText text-4xl font-semibold mb-8 tracking-tighter;
-  }
+@layer base {
+  .prose-content {
+    /* Encabezados: Se excluyen si tienen clases del componente Text */
+    & h1:not([class*="text--"]) {
+      @apply text-primaryText text-4xl font-semibold mb-8 tracking-tighter;
+    }
 
-  & h2 {
-    @apply text-2xl font-medium mb-4 mt-16 text-zinc-100 pb-2 tracking-tight;
-  }
+    & h2:not([class*="text--"]) {
+      @apply text-2xl font-medium mb-4 mt-16 text-zinc-100 pb-2 tracking-tight;
+    }
 
-  & h3 {
-    @apply text-xl font-medium mb-2 mt-10 tracking-tight;
-  }
+    & h3:not([class*="text--"]) {
+      @apply text-xl font-medium mb-2 mt-10 tracking-tight;
+    }
 
-  & p {
-    @apply text-zinc-400 leading-relaxed mb-5 text-[15px];
-  }
+    /* Párrafos: Se excluye para evitar el margen mb-5 en labels e inputs */
+    & p:not([class*="text--"]) {
+      @apply text-zinc-400 leading-relaxed mb-5 text-[15px];
+    }
 
-  & pre {
-    @apply p-4 rounded-xl border border-zinc-800 bg-zinc-900/50 my-6 overflow-x-auto;
-  }
+    /* Bloques de código y previsualización */
+    & pre {
+      @apply p-4 rounded-xl border border-zinc-800 bg-zinc-900/50 my-6 overflow-x-auto;
+    }
 
-  & code:not(pre code) {
-    @apply bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-sm font-mono;
-  }
+    & code:not(pre code) {
+      @apply bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded text-sm font-mono;
+    }
 
-  & ul,
-  & ol {
-    @apply mb-5 ml-6 text-zinc-400 space-y-2;
-  }
+    /* Listas */
+    & ul,
+    & ol {
+      @apply mb-5 ml-6 text-zinc-400 space-y-2;
+    }
 
-  & ul {
-    @apply list-disc;
-  }
+    & ul {
+      @apply list-disc;
+    }
 
-  & li strong {
-    @apply text-zinc-200;
+    & li strong {
+      @apply text-zinc-200;
+    }
+  }
+}
+
+@layer components {
+  /* Forzamos que los componentes Text no hereden márgenes de la base prose */
+  [class*="text--"] {
+    margin: 0;
   }
 }

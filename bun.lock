@@ -58,6 +58,17 @@
         "svelte": "^5.0.0",
       },
     },
+    "packages/components/input": {
+      "name": "@kori-ui/input",
+      "version": "0.0.2-alpha.1",
+      "dependencies": {
+        "@kori-ui/text": "^0.0.2-alpha.1",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
+      },
+    },
     "packages/components/radio": {
       "name": "@kori-ui/radio",
       "version": "0.0.2-alpha.1",
@@ -124,6 +135,7 @@
       "dependencies": {
         "@kori-ui/button": "^0.0.2-alpha.1",
         "@kori-ui/checkbox": "^0.0.2-alpha.1",
+        "@kori-ui/input": "^0.0.2-alpha.1",
         "@kori-ui/radio": "^0.0.2-alpha.1",
         "@kori-ui/segmented-control": "^0.0.2-alpha.1",
         "@kori-ui/slider": "^0.0.2-alpha.1",
@@ -362,6 +374,8 @@
     "@kori-ui/button": ["@kori-ui/button@workspace:packages/components/button"],
 
     "@kori-ui/checkbox": ["@kori-ui/checkbox@workspace:packages/components/checkbox"],
+
+    "@kori-ui/input": ["@kori-ui/input@workspace:packages/components/input"],
 
     "@kori-ui/radio": ["@kori-ui/radio@workspace:packages/components/radio"],
 

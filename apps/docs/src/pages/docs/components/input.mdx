@@ -1,0 +1,51 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Input | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import InputUsage from "@examples/input/InputUsage.svelte";
+import InputUsageCode from "@examples/input/InputUsage.svelte?raw";
+
+import InputSizes from "@examples/input/InputSizes.svelte";
+import InputSizesCode from "@examples/input/InputSizes.svelte?raw";
+
+import InputLabel from "@examples/input/InputLabel.svelte";
+import InputLabelCode from "@examples/input/InputLabel.svelte?raw";
+
+# Input
+
+A fundamental component for receiving text-based user input.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/input/src/lib/Input.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/input/src/lib/input.css"
+/>
+
+<ComponentExample code={InputUsageCode}>
+  <InputUsage client:load />
+</ComponentExample>
+
+### Sizes
+
+<ComponentExample code={InputSizesCode}>
+  <InputSizes client:load />
+</ComponentExample>
+
+### With Label
+
+<ComponentExample code={InputLabelCode}>
+  <InputLabel client:load />
+</ComponentExample>
+
+## API Reference
+
+| Prop       | Type                   | Default  | Description                            |
+| :--------- | :--------------------- | :------- | :------------------------------------- |
+| `value`    | `string \| number`     | `""`     | **$bindable**. The value of the input. |
+| `size`     | `"sm" \| "md" \| "lg"` | `"md"`   | The scale of the component.            |
+| `disabled` | `boolean`              | `false`  | Whether the input is disabled.         |
+| `type`     | `string`               | `"text"` | Standard HTML input type.              |

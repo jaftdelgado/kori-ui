@@ -25,11 +25,11 @@
   }
 
   .segmented-group[aria-disabled="true"] {
-    @apply opacity-60 cursor-not-allowed;
+    @apply opacity-40 cursor-not-allowed;
   }
 
   .segmented-indicator {
-    @apply absolute bg-surface shadow-xs z-10 pointer-events-none;
+    @apply absolute bg-surface shadow-xs z-10 pointer-events-none material-elevated-light;
     @apply rounded-[calc(var(--radius-control)-4px)];
     @apply transition-all duration-300 ease-out;
     top: 0;

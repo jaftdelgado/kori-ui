@@ -8,3 +8,4 @@ export * from "@kori-ui/slider";
 export * from "@kori-ui/switch";
 export * from "@kori-ui/tabs";
 export * from "@kori-ui/text";
+export * from "@kori-ui/input";

@@ -1,19 +1,82 @@
 ---
-layout: ../../../layouts/DocsLayout.astro
+layout: "@layouts/DocsLayout.astro"
 title: "Segmented Control | Kori UI"
 ---
 
-import Showcase from "../../../components/Showcase.svelte";
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import SegmentedUsage from "@examples/segmented-control/SegmentedUsage.svelte";
+import SegmentedUsageCode from "@examples/segmented-control/SegmentedUsage.svelte?raw";
+
+import SegmentedSizes from "@examples/segmented-control/SegmentedSizes.svelte";
+import SegmentedSizesCode from "@examples/segmented-control/SegmentedSizes.svelte?raw";
+
+import SegmentedWithIcons from "@examples/segmented-control/SegmentedWithIcons.svelte";
+import SegmentedWithIconsCode from "@examples/segmented-control/SegmentedWithIcons.svelte?raw";
+
+import SegmentedOnlyIcons from "@examples/segmented-control/SegmentedOnlyIcons.svelte";
+import SegmentedOnlyIconsCode from "@examples/segmented-control/SegmentedOnlyIcons.svelte?raw";
+
+import SegmentedOrientation from "@examples/segmented-control/SegmentedOrientation.svelte";
+import SegmentedOrientationCode from "@examples/segmented-control/SegmentedOrientation.svelte?raw";
+
+import SegmentedDisabled from "@examples/segmented-control/SegmentedDisabled.svelte";
+import SegmentedDisabledCode from "@examples/segmented-control/SegmentedDisabled.svelte?raw";
 
 # Segmented Control
 
-Aquí puedes ver el componente funcionando:
+A linear set of two or more segments, each of which functions as a mutually exclusive button.
 
-<Showcase
+<ExternalLinks
   client:load
-  value="test"
-  options={[
-    { value: "test", label: "Test" },
-    { value: "demo", label: "Demo" }
-  ]}
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/segmented/src/lib/SegmentedControl.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/segmented/src/lib/segmented.css"
 />
+
+<ComponentExample code={SegmentedUsageCode}>
+  <SegmentedUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+<ComponentExample code={SegmentedSizesCode}>
+  <SegmentedSizes client:load />
+</ComponentExample>
+
+### With Icons
+
+<ComponentExample code={SegmentedWithIconsCode}>
+  <SegmentedWithIcons client:load />
+</ComponentExample>
+
+### Only Icons
+
+<ComponentExample code={SegmentedOnlyIconsCode}>
+  <SegmentedOnlyIcons client:load />
+</ComponentExample>
+
+### Orientation
+
+<ComponentExample code={SegmentedOrientationCode}>
+  <SegmentedOrientation client:load />
+</ComponentExample>
+
+### Disabled
+
+<ComponentExample code={SegmentedDisabledCode}>
+  <SegmentedDisabled client:load />
+</ComponentExample>
+
+## API Reference
+
+| Prop          | Type                         | Default        | Description                                    |
+| :------------ | :--------------------------- | :------------- | :--------------------------------------------- |
+| `options`     | `SegmentedOption[]`          | `[]`           | Array of options to render.                    |
+| `value`       | `string`                     | `undefined`    | **$bindable**. Value of the selected segment.  |
+| `size`        | `"md" \| "lg"`               | `"md"`         | The vertical scale of the component.           |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The layout direction of the segments.          |
+| `disabled`    | `boolean`                    | `false`        | Disables all interactions with the component.  |
+| `onchange`    | `(value: string) => void`    | `undefined`    | Callback fired when a new segment is selected. |
