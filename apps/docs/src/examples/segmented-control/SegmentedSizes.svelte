@@ -11,7 +11,7 @@
   ];
 </script>
 
-<div class="flex flex-col items-center gap-6 w-full">
+<div class="flex flex-col items-center gap-6 w-full max-w-xs">
   <SegmentedControl {options} bind:value={val1} size="md" />
   <SegmentedControl {options} bind:value={val2} size="lg" />
 </div>

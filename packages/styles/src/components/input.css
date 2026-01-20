@@ -18,6 +18,10 @@
     @apply text-sm font-medium text-primaryText leading-tight px-4;
   }
 
+  .text-destructive {
+    color: var(--color-destructive);
+  }
+
   .input-description {
     @apply text-xs text-secondaryText mt-0.5 px-4;
   }

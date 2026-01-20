@@ -5,7 +5,7 @@
   let password = $state("");
 </script>
 
-<div class="flex flex-col gap-4 w-full max-w-xs mx-auto">
+<div class="flex flex-col gap-6 w-full max-w-xs mx-auto">
   <Input
     label="Email Address"
     description="We'll never share your email with anyone else."

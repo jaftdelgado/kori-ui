@@ -7,6 +7,7 @@
   --color-primaryControlHover: #2563eb;
   --color-secondaryControl: #e5e7eb;
   --color-secondaryControlHover: #d1d5db;
+  --color-destructive: #dc2626;
 }
 
 @layer base {
@@ -19,5 +20,6 @@
     --color-primaryControlHover: #ff5921;
     --color-secondaryControl: #181818;
     --color-secondaryControlHover: #374151;
+    --color-destructive: #f12c2c;
   }
 }

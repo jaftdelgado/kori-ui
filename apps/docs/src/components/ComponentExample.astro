@@ -3,9 +3,10 @@ import { Code } from 'astro:components';
 
 interface Props {
   code: string;
+  dynamicHeight?: boolean;
 }
 
-const { code } = Astro.props;
+const { code, dynamicHeight = false } = Astro.props;
 ---
 
 <div class="relative flex flex-col overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950 my-6 group/example">
@@ -18,7 +19,10 @@ const { code } = Astro.props;
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon hidden text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>
   </button>
 
-  <div class="flex min-h-92 items-center justify-center p-12 bg-[radial-gradient(#18181b_1px,transparent_1px)] [bg-size:20px_20px]">
+  <div class:list={[
+    "flex items-center justify-center p-4 md:p-12 bg-[radial-gradient(#18181b_1px,transparent_1px)] [bg-size:20px_20px]",
+    { "min-h-92": !dynamicHeight, "h-auto": dynamicHeight }
+  ]}>
     <slot />
   </div>
 

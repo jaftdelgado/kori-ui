@@ -1,0 +1,53 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Alert | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import AlertUsage from "@examples/alert/AlertUsage.svelte";
+import AlertUsageCode from "@examples/alert/AlertUsage.svelte?raw";
+
+import AlertVariants from "@examples/alert/AlertVariants.svelte";
+import AlertVariantsCode from "@examples/alert/AlertVariants.svelte?raw";
+
+import AlertClosable from "@examples/alert/AlertClosable.svelte";
+import AlertClosableCode from "@examples/alert/AlertClosable.svelte?raw";
+
+# Alert
+
+Displays a callout for user attention.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/alert/src/lib/Alert.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/alert/src/lib/alert.css"
+/>
+
+<ComponentExample code={AlertUsageCode}>
+  <AlertUsage client:load />
+</ComponentExample>
+
+### Variants
+
+<ComponentExample code={AlertVariantsCode} dynamicHeight>
+  <AlertVariants client:load />
+</ComponentExample>
+
+### Closable Alert
+
+<ComponentExample code={AlertClosableCode}>
+  <AlertClosable client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Alert` component accepts the following properties through Svelte 5 runes.
+
+| Prop       | Type                                                             | Default     | Description                               |
+| :--------- | :--------------------------------------------------------------- | :---------- | :---------------------------------------- |
+| `variant`  | `'default' \| 'destructive' \| 'success' \| 'warning' \| 'info'` | `'default'` | The visual style of the alert.            |
+| `title`    | `string \| Snippet`                                              | `undefined` | The title of the alert.                   |
+| `icon`     | `Snippet \| Component \| string`                                 | `undefined` | Icon displayed at the start of the alert. |
+| `children` | `Snippet`                                                        | `undefined` | The content description of the alert.     |

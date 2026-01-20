@@ -38,6 +38,16 @@
         "svelte-preprocess": "^6.0.3",
       },
     },
+    "packages/components/alert": {
+      "name": "@kori-ui/alert",
+      "version": "0.0.2-alpha.1",
+      "dependencies": {
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
+      },
+    },
     "packages/components/button": {
       "name": "@kori-ui/button",
       "version": "0.0.2-alpha.1",
@@ -50,6 +60,16 @@
     },
     "packages/components/checkbox": {
       "name": "@kori-ui/checkbox",
+      "version": "0.0.2-alpha.1",
+      "dependencies": {
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
+      },
+    },
+    "packages/components/chip": {
+      "name": "@kori-ui/chip",
       "version": "0.0.2-alpha.1",
       "dependencies": {
         "@kori-ui/utilities": "^0.0.2-alpha.1",
@@ -133,8 +153,10 @@
       "name": "@kori-ui/svelte",
       "version": "0.0.2-alpha.1",
       "dependencies": {
+        "@kori-ui/alert": "^0.0.2-alpha.1",
         "@kori-ui/button": "^0.0.2-alpha.1",
         "@kori-ui/checkbox": "^0.0.2-alpha.1",
+        "@kori-ui/chip": "^0.0.2-alpha.1",
         "@kori-ui/input": "^0.0.2-alpha.1",
         "@kori-ui/radio": "^0.0.2-alpha.1",
         "@kori-ui/segmented-control": "^0.0.2-alpha.1",
@@ -371,9 +393,13 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
+    "@kori-ui/alert": ["@kori-ui/alert@workspace:packages/components/alert"],
+
     "@kori-ui/button": ["@kori-ui/button@workspace:packages/components/button"],
 
     "@kori-ui/checkbox": ["@kori-ui/checkbox@workspace:packages/components/checkbox"],
+
+    "@kori-ui/chip": ["@kori-ui/chip@workspace:packages/components/chip"],
 
     "@kori-ui/input": ["@kori-ui/input@workspace:packages/components/input"],
 

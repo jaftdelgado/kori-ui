@@ -1,0 +1,42 @@
+---
+interface Props {
+  size?: number | string;
+  class?: string;
+  dotColor?: string;
+}
+
+const { 
+  size = 24, 
+  class: className, 
+  dotColor = "#FF3E00", 
+  ...rest 
+} = Astro.props;
+---
+
+<svg 
+  width={size} 
+  height={size} 
+  viewBox="0 0 3 3" 
+  fill="none" 
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+  {...rest}
+>
+  <g clip-path="url(#clip0_18_2)">
+    <path d="M2 3L1 2L0 3V0H1V2H3V3H2Z" fill="currentColor"/>
+    <path d="M2 2V1H1L2 0H3V1L2 2Z" fill="currentColor"/>
+    <path d="M1 2V1H2V2H1Z" fill={dotColor}/>
+  </g>
+  <defs>
+    <clipPath id="clip0_18_2">
+      <rect width="3" height="3" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<style>
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>

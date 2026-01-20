@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Sidebar from "@components/Sidebar.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import Topbar from "@components/Topbar.astro"; 
 
 interface Props {
   title?: string;
@@ -12,7 +13,7 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth scroll-pt-24">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,23 +21,23 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased">
-    <nav class="fixed top-0 z-50 w-full h-16 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md px-6 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-orange-500 rounded-lg shadow-lg shadow-orange-500/20"></div>
-        <span class="font-bold text-xl tracking-tighter text-white uppercase">KORI UI</span>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="https://github.com/jaftdelgado/kori-ui" target="_blank" class="text-sm text-zinc-400 hover:text-white transition-colors">GitHub</a>
-      </div>
-    </nav>
-
+  <body class="bg-zinc-950 text-zinc-100 antialiased overflow-x-hidden">
+    <Topbar />
+    
     <div class="flex pt-16 min-h-screen max-w-360 mx-auto">
-      <aside class="hidden md:flex flex-col w-72 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto p-6 shrink-0">
+      <div 
+        id="sidebar-overlay" 
+        class="fixed inset-0 z-40 bg-zinc-950/60 backdrop-blur-sm hidden md:hidden transition-opacity"
+      ></div>
+
+      <aside 
+        id="sidebar-container"
+        class="fixed inset-y-0 left-0 z-50 w-72 bg-zinc-950 border-r border-zinc-900 transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:flex md:flex-col md:h-[calc(100vh-64px)] md:sticky md:top-16 md:border-none overflow-y-auto p-6 shrink-0"
+      >
         <Sidebar />
       </aside>
 
-      <main class="flex-1 p-4 md:p-12 prose-content">
+      <main class="flex-1 p-4 md:p-12 prose-content min-w-0">
         <div class="max-w-2xl mx-auto w-full">
           <slot />
         </div>
@@ -46,5 +47,36 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
         <TableOfContents headings={headings} />
       </aside>
     </div>
+
+    <script>
+      const sidebar = document.getElementById('sidebar-container');
+      const overlay = document.getElementById('sidebar-overlay');
+      const body = document.body;
+
+      function toggleSidebar() {
+        const isClosed = sidebar?.classList.contains('-translate-x-full');
+        
+        if (isClosed) {
+          sidebar?.classList.replace('-translate-x-full', 'translate-x-0');
+          overlay?.classList.remove('hidden');
+          body.style.overflow = 'hidden';
+        } else {
+          sidebar?.classList.replace('translate-x-0', '-translate-x-full');
+          overlay?.classList.add('hidden');
+          body.style.overflow = '';
+        }
+      }
+
+      document.addEventListener('toggle-sidebar', toggleSidebar);
+      overlay?.addEventListener('click', toggleSidebar);
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && !sidebar?.classList.contains('-translate-x-full')) {
+          sidebar?.classList.add('-translate-x-full');
+          overlay?.classList.add('hidden');
+          body.style.overflow = '';
+        }
+      });
+    </script>
   </body>
 </html>

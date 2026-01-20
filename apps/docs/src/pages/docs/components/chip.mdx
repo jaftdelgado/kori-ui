@@ -1,0 +1,85 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Chip | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import ChipUsage from "@examples/chip/ChipUsage.svelte";
+import ChipUsageCode from "@examples/chip/ChipUsage.svelte?raw";
+
+import ChipDisabled from "@examples/chip/ChipDisabled.svelte";
+import ChipDisabledCode from "@examples/chip/ChipDisabled.svelte?raw";
+
+import ChipSizes from "@examples/chip/ChipSizes.svelte";
+import ChipSizesCode from "@examples/chip/ChipSizes.svelte?raw";
+
+import ChipVariants from "@examples/chip/ChipVariants.svelte";
+import ChipVariantsCode from "@examples/chip/ChipVariants.svelte?raw";
+
+import ChipDot from "@examples/chip/ChipDot.svelte";
+import ChipDotCode from "@examples/chip/ChipDot.svelte?raw";
+
+import ChipClosable from "@examples/chip/ChipClosable.svelte";
+import ChipClosableCode from "@examples/chip/ChipClosable.svelte?raw";
+
+# Chip
+
+Chips are compact elements that represent an input, attribute, or action.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/chip/src/lib/Chip.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/chip/src/lib/chip.css"
+/>
+
+<ComponentExample code={ChipUsageCode}>
+  <ChipUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Disabled
+
+<ComponentExample code={ChipDisabledCode}>
+  <ChipDisabled client:load />
+</ComponentExample>
+
+### Sizes
+
+<ComponentExample code={ChipSizesCode}>
+  <ChipSizes client:load />
+</ComponentExample>
+
+### Variants
+
+<ComponentExample code={ChipVariantsCode}>
+  <ChipVariants client:load />
+</ComponentExample>
+
+### With Color Dot
+
+<ComponentExample code={ChipDotCode}>
+  <ChipDot client:load />
+</ComponentExample>
+
+### Closable
+
+Use the `onremove` prop to show a delete icon and handle the removal logic.
+
+<ComponentExample code={ChipClosableCode}>
+  <ChipClosable client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Chip` component supports both a `label` prop and a `children` snippet for more complex content.
+
+| Prop       | Type                              | Default     | Description                                       |
+| :--------- | :-------------------------------- | :---------- | :------------------------------------------------ |
+| `label`    | `string`                          | `undefined` | The text to display inside the chip.              |
+| `variant`  | `"solid" \| "outline" \| "ghost"` | `"solid"`   | The visual style of the chip.                     |
+| `size`     | `"sm" \| "md" \| "lg"`            | `"md"`      | The vertical scale (matching Switch heights).     |
+| `disabled` | `boolean`                         | `false`     | Reduces opacity and prevents interaction.         |
+| `onremove` | `() => void`                      | `undefined` | Displays a close icon and triggers this callback. |

@@ -7,6 +7,7 @@
     size?: "sm" | "md" | "lg";
     label?: string;
     description?: string;
+    isRequired?: boolean;
   }
 
   let {
@@ -17,6 +18,7 @@
     type = "text",
     label,
     description,
+    isRequired = false,
     id = crypto.randomUUID(),
     ...rest
   }: Props = $props();
@@ -26,6 +28,9 @@
   {#if label}
     <label for={id} class="input-label">
       {label}
+      {#if isRequired}
+        <span class="text-destructive">*</span>
+      {/if}
     </label>
   {/if}
 
