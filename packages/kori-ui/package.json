@@ -24,6 +24,7 @@
     "@kori-ui/checkbox": "^0.0.2-alpha.1",
     "@kori-ui/chip": "^0.0.2-alpha.1",
     "@kori-ui/input": "^0.0.2-alpha.1",
+    "@kori-ui/input-otp": "^0.0.2-alpha.1",
     "@kori-ui/radio": "^0.0.2-alpha.1",
     "@kori-ui/segmented-control": "^0.0.2-alpha.1",
     "@kori-ui/slider": "^0.0.2-alpha.1",

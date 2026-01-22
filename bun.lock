@@ -89,6 +89,16 @@
         "svelte": "^5.0.0",
       },
     },
+    "packages/components/input-otp": {
+      "name": "@kori-ui/input-otp",
+      "version": "0.0.2-alpha.1",
+      "dependencies": {
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
+      },
+    },
     "packages/components/radio": {
       "name": "@kori-ui/radio",
       "version": "0.0.2-alpha.1",
@@ -158,6 +168,7 @@
         "@kori-ui/checkbox": "^0.0.2-alpha.1",
         "@kori-ui/chip": "^0.0.2-alpha.1",
         "@kori-ui/input": "^0.0.2-alpha.1",
+        "@kori-ui/input-otp": "^0.0.2-alpha.1",
         "@kori-ui/radio": "^0.0.2-alpha.1",
         "@kori-ui/segmented-control": "^0.0.2-alpha.1",
         "@kori-ui/slider": "^0.0.2-alpha.1",
@@ -402,6 +413,8 @@
     "@kori-ui/chip": ["@kori-ui/chip@workspace:packages/components/chip"],
 
     "@kori-ui/input": ["@kori-ui/input@workspace:packages/components/input"],
+
+    "@kori-ui/input-otp": ["@kori-ui/input-otp@workspace:packages/components/input-otp"],
 
     "@kori-ui/radio": ["@kori-ui/radio@workspace:packages/components/radio"],
 

@@ -2,11 +2,10 @@
 import { Code } from 'astro:components';
 
 interface Props {
-  code: string;
-  dynamicHeight?: boolean;
+  code?: string;
 }
 
-const { code, dynamicHeight = false } = Astro.props;
+const { code = "" } = Astro.props;
 ---
 
 <div class="relative flex flex-col overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950 my-6 group/example">
@@ -20,8 +19,7 @@ const { code, dynamicHeight = false } = Astro.props;
   </button>
 
   <div class:list={[
-    "flex items-center justify-center p-4 md:p-12 bg-[radial-gradient(#18181b_1px,transparent_1px)] [bg-size:20px_20px]",
-    { "min-h-92": !dynamicHeight, "h-auto": dynamicHeight }
+    "flex items-center justify-center p-4 min-h-92 md:p-12 bg-[radial-gradient(#18181b_1px,transparent_1px)] [bg-size:20px_20px]",
   ]}>
     <slot />
   </div>

@@ -1,0 +1,112 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Input OTP | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import InputOTPUsage from "@examples/input-otp/InputOTPUsage.svelte";
+import InputOTPUsageCode from "@examples/input-otp/InputOTPUsage.svelte?raw";
+
+import InputOTPSizes from "@examples/input-otp/InputOTPSizes.svelte";
+import InputOTPSizesCode from "@examples/input-otp/InputOTPSizes.svelte?raw";
+
+import InputOTPControlled from "@examples/input-otp/InputOTPControlled.svelte";
+import InputOTPControlledCode from "@examples/input-otp/InputOTPControlled.svelte?raw";
+
+import InputOTPOnComplete from "@examples/input-otp/InputOTPOnComplete.svelte";
+import InputOTPOnCompleteCode from "@examples/input-otp/InputOTPOnComplete.svelte?raw";
+
+import InputOTPDisabled from "@examples/input-otp/InputOTPDisabled.svelte";
+import InputOTPDisabledCode from "@examples/input-otp/InputOTPDisabled.svelte?raw";
+
+import InputOTPReadonly from "@examples/input-otp/InputOTPReadonly.svelte";
+import InputOTPReadonlyCode from "@examples/input-otp/InputOTPReadonly.svelte?raw";
+
+import InputOTPSeparators from "@examples/input-otp/InputOTPSeparators.svelte";
+import InputOTPSeparatorsCode from "@examples/input-otp/InputOTPSeparators.svelte?raw";
+
+import InputOTPLength from "@examples/input-otp/InputOTPLength.svelte";
+import InputOTPLengthCode from "@examples/input-otp/InputOTPLength.svelte?raw";
+
+import InputOTPPattern from "@examples/input-otp/InputOTPPattern.svelte";
+import InputOTPPatternCode from "@examples/input-otp/InputOTPPattern.svelte?raw";
+
+# Input OTP
+
+A component for handling One-Time Passwords (OTP) and verification codes with segmented inputs.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/input-otp/src/lib/InputOTP.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/input-otp/src/components/input-otp.css"
+/>
+
+<ComponentExample code={InputOTPUsageCode}>
+  <InputOTPUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+<ComponentExample code={InputOTPSizesCode}>
+  <InputOTPSizes client:load />
+</ComponentExample>
+
+### Controlled
+
+<ComponentExample code={InputOTPControlledCode}>
+  <InputOTPControlled client:load />
+</ComponentExample>
+
+### On Complete
+
+<ComponentExample code={InputOTPOnCompleteCode}>
+  <InputOTPOnComplete client:load />
+</ComponentExample>
+
+### Disabled
+
+<ComponentExample code={InputOTPDisabledCode}>
+  <InputOTPDisabled client:load />
+</ComponentExample>
+
+### Read Only
+
+<ComponentExample code={InputOTPReadonlyCode}>
+  <InputOTPReadonly client:load />
+</ComponentExample>
+
+### With Pattern
+
+<ComponentExample code={InputOTPPatternCode}>
+  <InputOTPPattern client:load />
+</ComponentExample>
+
+### Length
+
+<ComponentExample code={InputOTPLengthCode}>
+  <InputOTPLength client:load />
+</ComponentExample>
+
+### Separators
+
+<ComponentExample code={InputOTPSeparatorsCode}>
+  <InputOTPSeparators client:load />
+</ComponentExample>
+
+## API Reference
+
+| Prop          | Type                   | Default     | Description                                  |
+| :------------ | :--------------------- | :---------- | :------------------------------------------- |
+| `value`       | `string`               | `""`        | **$bindable**. The numeric string value.     |
+| `length`      | `number`               | `6`         | Total number of input slots.                 |
+| `separators`  | `number[]`             | `[]`        | Indices after which to render a separator.   |
+| `size`        | `"sm" \| "md" \| "lg"` | `"md"`      | The scale of the input slots.                |
+| `disabled`    | `boolean`              | `false`     | Disables all input slots.                    |
+| `placeholder` | `string`               | `undefined` | Optional placeholder string (per character). |
+| `label`       | `string`               | `undefined` | Label text displayed above the inputs.       |
+| `description` | `string`               | `undefined` | Helper text displayed below the inputs.      |
+| `isRequired`  | `boolean`              | `false`     | Adds a visual indicator to the label.        |

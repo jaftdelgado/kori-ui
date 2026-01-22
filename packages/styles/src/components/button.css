@@ -10,7 +10,7 @@
   }
 
   .button--primary {
-    @apply material-elevated bg-primaryControl text-white hover:bg-primaryControlHover disabled:bg-gray-300;
+    @apply material-elevated bg-primaryControl text-white hover:bg-primaryControlHover disabled:opacity-30;
   }
 
   .button--secondary {
