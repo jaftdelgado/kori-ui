@@ -38,155 +38,22 @@
         "svelte-preprocess": "^6.0.3",
       },
     },
-    "packages/components/alert": {
-      "name": "@kori-ui/alert",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/button": {
-      "name": "@kori-ui/button",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/checkbox": {
-      "name": "@kori-ui/checkbox",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/chip": {
-      "name": "@kori-ui/chip",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/input": {
-      "name": "@kori-ui/input",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/text": "^0.0.2-alpha.1",
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/input-otp": {
-      "name": "@kori-ui/input-otp",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/radio": {
-      "name": "@kori-ui/radio",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/segmented-control": {
-      "name": "@kori-ui/segmented-control",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/slider": {
-      "name": "@kori-ui/slider",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/switch": {
-      "name": "@kori-ui/switch",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/tabs": {
-      "name": "@kori-ui/tabs",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/components/text": {
-      "name": "@kori-ui/text",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
-    "packages/kori-ui": {
-      "name": "@kori-ui/svelte",
-      "version": "0.0.2-alpha.1",
-      "dependencies": {
-        "@kori-ui/alert": "^0.0.2-alpha.1",
-        "@kori-ui/button": "^0.0.2-alpha.1",
-        "@kori-ui/checkbox": "^0.0.2-alpha.1",
-        "@kori-ui/chip": "^0.0.2-alpha.1",
-        "@kori-ui/input": "^0.0.2-alpha.1",
-        "@kori-ui/input-otp": "^0.0.2-alpha.1",
-        "@kori-ui/radio": "^0.0.2-alpha.1",
-        "@kori-ui/segmented-control": "^0.0.2-alpha.1",
-        "@kori-ui/slider": "^0.0.2-alpha.1",
-        "@kori-ui/styles": "^0.0.2-alpha.1",
-        "@kori-ui/switch": "^0.0.2-alpha.1",
-        "@kori-ui/tabs": "^0.0.2-alpha.1",
-        "@kori-ui/text": "^0.0.2-alpha.1",
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
-      },
-      "peerDependencies": {
-        "svelte": "^5.0.0",
-      },
-    },
     "packages/styles": {
       "name": "@kori-ui/styles",
       "version": "0.0.2-alpha.1",
       "devDependencies": {
         "tailwindcss": "^4.0.0",
+      },
+    },
+    "packages/svelte": {
+      "name": "@kori-ui/svelte",
+      "version": "0.0.2-alpha.1",
+      "dependencies": {
+        "@kori-ui/styles": "^0.0.2-alpha.1",
+        "@kori-ui/utilities": "^0.0.2-alpha.1",
+      },
+      "peerDependencies": {
+        "svelte": "^5.0.0",
       },
     },
     "packages/utilities": {
@@ -404,33 +271,9 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
-    "@kori-ui/alert": ["@kori-ui/alert@workspace:packages/components/alert"],
-
-    "@kori-ui/button": ["@kori-ui/button@workspace:packages/components/button"],
-
-    "@kori-ui/checkbox": ["@kori-ui/checkbox@workspace:packages/components/checkbox"],
-
-    "@kori-ui/chip": ["@kori-ui/chip@workspace:packages/components/chip"],
-
-    "@kori-ui/input": ["@kori-ui/input@workspace:packages/components/input"],
-
-    "@kori-ui/input-otp": ["@kori-ui/input-otp@workspace:packages/components/input-otp"],
-
-    "@kori-ui/radio": ["@kori-ui/radio@workspace:packages/components/radio"],
-
-    "@kori-ui/segmented-control": ["@kori-ui/segmented-control@workspace:packages/components/segmented-control"],
-
-    "@kori-ui/slider": ["@kori-ui/slider@workspace:packages/components/slider"],
-
     "@kori-ui/styles": ["@kori-ui/styles@workspace:packages/styles"],
 
-    "@kori-ui/svelte": ["@kori-ui/svelte@workspace:packages/kori-ui"],
-
-    "@kori-ui/switch": ["@kori-ui/switch@workspace:packages/components/switch"],
-
-    "@kori-ui/tabs": ["@kori-ui/tabs@workspace:packages/components/tabs"],
-
-    "@kori-ui/text": ["@kori-ui/text@workspace:packages/components/text"],
+    "@kori-ui/svelte": ["@kori-ui/svelte@workspace:packages/svelte"],
 
     "@kori-ui/utilities": ["@kori-ui/utilities@workspace:packages/utilities"],
 

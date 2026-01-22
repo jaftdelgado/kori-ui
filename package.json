@@ -7,7 +7,7 @@
     "packages/utilities",
     "packages/components/*",
     "packages/styles",
-    "packages/kori-ui"
+    "packages/svelte"
   ],
   "scripts": {
     "dev": "bun --filter \"*\" dev",
