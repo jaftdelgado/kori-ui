@@ -1,13 +1,15 @@
 export * from "@kori-ui/utilities";
-
 export * from "./components/alert/index.js";
+export * from "./components/avatar/index.js";
 export * from "./components/button/index.js";
 export * from "./components/checkbox/index.js";
 export * from "./components/chip/index.js";
 export * from "./components/input-otp/index.js";
 export * from "./components/input/index.js";
+export * from "./components/popover/index.js";
 export * from "./components/radio/index.js";
 export * from "./components/segmented-control/index.js";
 export * from "./components/slider/index.js";
 export * from "./components/switch/index.js";
 export * from "./components/tabs/index.js";
+export * from "./components/tooltip/index.js";

@@ -1,0 +1,27 @@
+@layer components {
+  .avatar {
+    @apply relative flex shrink-0 overflow-hidden rounded-full bg-secondaryControl;
+    @apply border border-white/5;
+  }
+
+  .avatar__image {
+    @apply h-full w-full aspect-square object-cover;
+  }
+
+  .avatar__fallback {
+    @apply flex h-full w-full items-center justify-center rounded-full bg-secondaryControl text-secondaryText uppercase;
+    user-select: none;
+  }
+
+  .avatar--sm {
+    @apply h-8 w-8 text-xs;
+  }
+
+  .avatar--md {
+    @apply h-10 w-10 text-sm;
+  }
+
+  .avatar--lg {
+    @apply h-12 w-12 text-base;
+  }
+}

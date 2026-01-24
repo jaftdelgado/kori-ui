@@ -1,8 +1,7 @@
 @layer base {
   .prose-content {
-    /* Encabezados: Se excluyen si tienen clases del componente Text */
     & h1:not([class*="text--"]) {
-      @apply text-primaryText text-4xl font-semibold mb-8 tracking-tighter;
+      @apply text-primaryText text-4xl font-semibold mb-6 tracking-tighter;
     }
 
     & h2:not([class*="text--"]) {
@@ -13,12 +12,10 @@
       @apply text-xl font-medium mb-2 mt-10 tracking-tight;
     }
 
-    /* Párrafos: Se excluye para evitar el margen mb-5 en labels e inputs */
     & p:not([class*="text--"]) {
-      @apply text-zinc-400 leading-relaxed mb-5 text-[15px];
+      @apply text-zinc-400 leading-relaxed text-[15px];
     }
 
-    /* Bloques de código y previsualización */
     & pre {
       @apply p-4 rounded-xl border border-zinc-800 bg-zinc-900/50 my-6 overflow-x-auto;
     }

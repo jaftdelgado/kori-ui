@@ -1,0 +1,45 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Avatar | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import AvatarUsage from "@examples/avatar/AvatarUsage.svelte";
+import AvatarUsageCode from "@examples/avatar/AvatarUsage.svelte?raw";
+
+import AvatarSizes from "@examples/avatar/AvatarSizes.svelte";
+import AvatarSizesCode from "@examples/avatar/AvatarSizes.svelte?raw";
+
+# Avatar
+
+A visual representation of a user or entity, typically displaying a profile image or initials.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/avatar/Avatar.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/styles/src/components/avatar.css"
+/>
+
+<ComponentExample code={AvatarUsageCode}>
+  <AvatarUsage client:load />
+</ComponentExample>
+
+### Sizes
+
+The component includes three predefined sizes: `sm` (32px), `md` (40px), and `lg` (48px).
+
+<ComponentExample code={AvatarSizesCode}>
+  <AvatarSizes client:load />
+</ComponentExample>
+
+## API Reference
+
+| Prop       | Type                   | Default    | Description                                 |
+| :--------- | :--------------------- | :--------- | :------------------------------------------ |
+| `src`      | `string`               | `""`       | The source URL of the image to display.     |
+| `alt`      | `string`               | `"Avatar"` | Accessible text for the image.              |
+| `size`     | `"sm" \| "md" \| "lg"` | `"md"`     | The scale of the avatar.                    |
+| `fallback` | `string`               | `"?"`      | Text to display if the image fails to load. |
+| `class`    | `string`               | `""`       | Additional CSS classes for the container.   |

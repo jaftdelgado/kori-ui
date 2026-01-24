@@ -1,0 +1,53 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Tooltip | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import TooltipUsage from "@examples/tooltip/TooltipUsage.svelte";
+import TooltipUsageCode from "@examples/tooltip/TooltipUsage.svelte?raw";
+
+import TooltipPlacements from "@examples/tooltip/TooltipPlacements.svelte";
+import TooltipPlacementsCode from "@examples/tooltip/TooltipPlacements.svelte?raw";
+
+import TooltipOffset from "@examples/tooltip/TooltipOffset.svelte";
+import TooltipOffsetCode from "@examples/tooltip/TooltipOffset.svelte?raw";
+
+import TooltipControlled from "@examples/tooltip/TooltipControlled.svelte";
+import TooltipControlledCode from "@examples/tooltip/TooltipControlled.svelte?raw";
+
+# Tooltip
+
+A brief helper text that appears when a user hovers over or focuses on an element.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/tooltip/Tooltip.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/styles/src/components/tooltip.css"
+/>
+
+<ComponentExample code={TooltipUsageCode}>
+  <TooltipUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Placements
+
+<ComponentExample code={TooltipPlacementsCode}>
+  <TooltipPlacements client:load />
+</ComponentExample>
+
+### Offset
+
+<ComponentExample code={TooltipOffsetCode}>
+  <TooltipOffset client:load />
+</ComponentExample>
+
+### Controlled
+
+<ComponentExample code={TooltipControlledCode}>
+  <TooltipControlled client:load />
+</ComponentExample>
