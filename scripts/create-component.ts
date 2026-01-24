@@ -15,6 +15,7 @@ if (!inputName) {
   process.exit(1);
 }
 
+// Name formatting
 const nameKebab = inputName
   .replace(/([a-z])([A-Z])/g, "$1-$2")
   .replace(/[\s_]+/g, "-")
@@ -26,38 +27,11 @@ const namePascal = nameKebab
   .join("");
 
 const rootDir = process.cwd();
-const componentsRoot = join(rootDir, "packages", "components");
-const componentDir = join(componentsRoot, nameKebab);
+// New path: inside the svelte package components directory
+const sveltePkgDir = join(rootDir, "packages", "svelte");
+const componentDir = join(sveltePkgDir, "src", "components", nameKebab);
 const stylesDir = join(rootDir, "packages", "styles", "src", "components");
-const mainPackageDir = join(rootDir, "packages", "svelte");
 const docsDir = join(rootDir, "apps", "docs", "src");
-
-const packageJsonContent = `{
-  "name": "@kori-ui/${nameKebab}",
-  "version": "0.0.2-alpha.1",
-  "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "svelte": "./src/index.ts",
-      "default": "./src/index.ts"
-    }
-  },
-  "files": [
-    "src"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@kori-ui/utilities": "^0.0.2-alpha.1"
-  },
-  "peerDependencies": {
-    "svelte": "^5.0.0"
-  }
-}`;
 
 const svelteContent = `<script lang="ts">
   import type { HTMLAttributes } from "svelte/elements";
@@ -76,46 +50,47 @@ const svelteContent = `<script lang="ts">
 </div>
 `;
 
-const indexContent = `export { default as ${namePascal} } from "./lib/${namePascal}.svelte";\n`;
-const readmeContent = `# @kori-ui/${nameKebab}\n\nComponente ${namePascal} para Kori UI.`;
-const cssContent = `.kori-${nameKebab} {\n  /* Estilos para ${nameKebab} */\n}\n`;
-const mdxContent = `# ${namePascal}\n\nDocumentación para el componente ${namePascal}.`;
+// Updated index content to point to current directory (no /lib/)
+const indexContent = `export { default as ${namePascal} } from "./${namePascal}.svelte";\n`;
+const cssContent = `.${nameKebab} {\n  /* Styles for ${nameKebab} */\n}\n`;
+const mdxContent = `# ${namePascal}\n\nDocumentation for ${namePascal} component.`;
 
 try {
-  await mkdir(join(componentDir, "src", "lib"), { recursive: true });
-  await write(join(componentDir, "package.json"), packageJsonContent);
-  await write(join(componentDir, "README.md"), readmeContent);
-  await write(join(componentDir, "src", "index.ts"), indexContent);
-  await write(join(componentDir, "src", "lib", `${namePascal}.svelte`), svelteContent);
+  // 1. Create component directory structure
+  await mkdir(componentDir, { recursive: true });
 
+  // 2. Write component files directly in the new path
+  await write(join(componentDir, `${namePascal}.svelte`), svelteContent);
+  await write(join(componentDir, "index.ts"), indexContent);
+
+  // 3. Handle Styles
   await mkdir(stylesDir, { recursive: true });
   await write(join(stylesDir, `${nameKebab}.css`), cssContent);
   await appendFile(join(stylesDir, "index.css"), `@import "./${nameKebab}.css";\n`);
 
-  const mainPkgPath = join(mainPackageDir, "package.json");
-  const mainPkgFile = (await file(mainPkgPath).json()) as PackageJson;
+  // 4. Update Main Svelte Index (Barrel Export)
+  const mainIndexPath = join(sveltePkgDir, "src", "index.ts");
+  const exportStatement = `export * from "./components/${nameKebab}/index.js";\n`;
 
-  const currentDeps = mainPkgFile.dependencies || {};
-  currentDeps[`@kori-ui/${nameKebab}`] = "^0.0.2-alpha.1";
+  // Read, sort and update the main index to keep it alphabetical
+  const currentIndex = await file(mainIndexPath).text();
+  const lines = currentIndex.split("\n").filter((l) => l.trim() !== "");
 
-  const sortedDeps = Object.keys(currentDeps)
-    .sort()
-    .reduce((acc: Record<string, string>, key) => {
-      const val = currentDeps[key];
-      if (val !== undefined) {
-        acc[key] = val;
-      }
-      return acc;
-    }, {});
+  if (!lines.includes(exportStatement.trim())) {
+    lines.push(exportStatement.trim());
+  }
 
-  mainPkgFile.dependencies = sortedDeps;
-  await write(mainPkgPath, JSON.stringify(mainPkgFile, null, 2));
+  // Sort only the component exports, keeping utilities at the top if necessary
+  const utilityLines = lines.filter((l) => l.includes("@kori-ui/utilities"));
+  const componentLines = lines.filter((l) => l.includes("./components/")).sort();
 
-  const mainIndexPath = join(mainPackageDir, "src", "index.ts");
-  await appendFile(mainIndexPath, `export * from "@kori-ui/${nameKebab}";\n`);
+  const updatedIndex = [...utilityLines, ...componentLines].join("\n") + "\n";
+  await write(mainIndexPath, updatedIndex);
 
+  // 5. Documentation and Examples
   await mkdir(join(docsDir, "examples", nameKebab), { recursive: true });
   await write(join(docsDir, "pages", "docs", "components", `${nameKebab}.mdx`), mdxContent);
 } catch (error) {
+  console.error("Error creating component:", error);
   process.exit(1);
 }

@@ -13,3 +13,15 @@
 @utility material-interactive {
   @apply transition-all duration-200 active:scale-96 disabled:scale-100;
 }
+
+@utility material-overlay {
+  @apply backdrop-blur-md bg-secondaryControl/80;
+
+  /* Borde con degradado sutil y relieve */
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image:
+    linear-gradient(var(--color-secondaryControl), var(--color-secondaryControl)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.2));
+}

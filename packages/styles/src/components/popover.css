@@ -1,0 +1,18 @@
+@layer components {
+  .popover {
+    @apply absolute top-0 left-0 z-50 rounded-2xl bg-secondaryControl px-3 py-1.5 ring-1 ring-black/5 outline-none;
+    @apply text-primaryText text-sm;
+  }
+
+  .popover__trigger {
+    @apply inline-flex cursor-pointer;
+  }
+
+  .popover__header {
+    @apply text-sm font-medium text-primaryText leading-tight px-1;
+  }
+
+  .popover__subtitle {
+    @apply text-xs text-secondaryText mt-0.5 px-1;
+  }
+}

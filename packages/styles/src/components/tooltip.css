@@ -1,0 +1,10 @@
+@layer components {
+  .tooltip {
+    @apply absolute top-0 left-0 z-50 rounded-xl px-2.5 py-1.5 bg-secondaryControl pointer-events-none;
+    @apply text-xs text-secondaryText;
+  }
+
+  .tooltip__trigger {
+    @apply inline-flex;
+  }
+}

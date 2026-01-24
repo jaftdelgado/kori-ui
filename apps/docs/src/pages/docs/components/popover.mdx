@@ -1,0 +1,44 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Popover | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import PopoverUsage from "@examples/popover/PopoverUsage.svelte";
+import PopoverUsageCode from "@examples/popover/PopoverUsage.svelte?raw";
+
+import PopoverPlacements from "@examples/popover/PopoverPlacements.svelte";
+import PopoverPlacementsCode from "@examples/popover/PopoverPlacements.svelte?raw";
+
+import PopoverOffset from "@examples/popover/PopoverOffset.svelte";
+import PopoverOffsetCode from "@examples/popover/PopoverOffset.svelte?raw";
+
+# Popover
+
+A non-modal dialog that floats around a trigger element to display contextual information.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/popover/Popover.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/styles/src/components/popover.css"
+/>
+
+<ComponentExample code={PopoverUsageCode}>
+  <PopoverUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Placements
+
+<ComponentExample code={PopoverPlacementsCode}>
+  <PopoverPlacements client:load />
+</ComponentExample>
+
+### Offset
+
+<ComponentExample code={PopoverOffsetCode}>
+  <PopoverOffset client:load />
+</ComponentExample>
