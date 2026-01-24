@@ -5,7 +5,8 @@
     "paths": {
       "@examples/*": ["src/examples/*"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@resources/*": ["src/resources/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"],

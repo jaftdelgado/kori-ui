@@ -3,13 +3,28 @@
   import type { HTMLButtonAttributes } from "svelte/elements";
   import type { Snippet, Component } from "svelte";
 
-  interface Props extends HTMLButtonAttributes {
-    children?: Snippet;
-    startContent?: Snippet | Component | string;
-    endContent?: Snippet | Component | string;
-    variant?: "primary" | "secondary" | "ghost";
+  type IconContent = Snippet | string;
+
+  interface BaseProps extends HTMLButtonAttributes {
+    variant?: "primary" | "secondary" | "ghost" | "outline" | "danger" | "soft-danger";
     size?: "sm" | "md" | "lg";
   }
+
+  interface NormalProps extends BaseProps {
+    iconOnly?: false;
+    children?: Snippet;
+    startContent?: IconContent;
+    endContent?: IconContent;
+  }
+
+  interface IconOnlyProps extends BaseProps {
+    iconOnly: true;
+    children: Snippet;
+    startContent?: never;
+    endContent?: never;
+  }
+
+  type Props = NormalProps | IconOnlyProps;
 
   let {
     children,
@@ -21,27 +36,17 @@
     variant = "primary",
     size = "md",
     disabled = false,
+    iconOnly = false,
     ...rest
   }: Props = $props();
-
-  const rippleColors = {
-    primary: "rgba(255, 255, 255, 0.35)",
-    secondary: "rgba(0, 0, 0, 0.1)",
-    ghost: "rgba(0, 0, 0, 0.1)"
-  };
 </script>
 
-{#snippet renderContent(content: Props["startContent"])}
+{#snippet renderIcon(content: IconContent | undefined)}
   {#if typeof content === "string"}
-    <span class={cn("flex items-center justify-center shrink-0", content)}></span>
+    <i class={cn("flex items-center justify-center shrink-0", content)}></i>
   {:else if content}
     <span class="flex items-center justify-center shrink-0">
-      {#if typeof content === "function" && content.name === "Snippet"}
-        {@render (content as Snippet)()}
-      {:else}
-        {@const DynamicComponent = content as Component}
-        <DynamicComponent />
-      {/if}
+      {@render content()}
     </span>
   {/if}
 {/snippet}
@@ -51,18 +56,27 @@
   {onclick}
   {disabled}
   {...rest}
-  use:clickRipple={{ color: rippleColors[variant] }}
-  class={cn("button", `button--${variant}`, `button--${size}`, className)}
+  use:clickRipple
+  class={cn(
+    "button",
+    `button--${variant}`,
+    iconOnly ? ["button--icon-only", `button--icon-only--${size}`] : `button--${size}`,
+    className
+  )}
 >
-  <span class="button__content relative z-10 flex items-center justify-center">
-    {@render renderContent(startContent)}
+  <span class="button__content relative z-10">
+    {#if iconOnly}
+      {@render children?.()}
+    {:else}
+      {@render renderIcon(startContent)}
 
-    {#if children}
-      <span class="flex items-center">
-        {@render children()}
-      </span>
+      {#if children}
+        <span class="flex items-center">
+          {@render children()}
+        </span>
+      {/if}
+
+      {@render renderIcon(endContent)}
     {/if}
-
-    {@render renderContent(endContent)}
   </span>
 </button>

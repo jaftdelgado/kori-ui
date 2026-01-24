@@ -2,7 +2,6 @@
   @keyframes click-ripple-effect {
     from {
       transform: scale(0);
-      opacity: 1;
     }
     to {
       transform: scale(4);

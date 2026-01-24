@@ -2,4 +2,4 @@
   import { Button } from "@kori-ui/svelte";
 </script>
 
-<Button onclick={() => console.log("Click!")}>Default Button</Button>
+<Button disabled>Disabled Button</Button>

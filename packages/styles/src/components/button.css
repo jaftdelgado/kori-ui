@@ -1,38 +1,79 @@
 @layer components {
   .button {
     @apply material-interactive;
-    @apply relative overflow-hidden inline-flex items-center justify-center rounded-control font-medium transition-colors duration-200 cursor-pointer disabled:cursor-auto;
+    @apply relative overflow-hidden inline-flex items-center justify-center rounded-control font-medium transition-colors duration-200 cursor-pointer;
     @apply leading-none text-center whitespace-nowrap select-none;
+    @apply disabled:opacity-disabled disabled:cursor-auto; /* Uso de variable centralizada */
+
+    --btn-hover-opacity: var(--opacity-hover);
+  }
+
+  .button::after {
+    content: "";
+    @apply absolute inset-0 bg-hover opacity-0 transition-opacity duration-200 pointer-events-none;
+  }
+
+  .button:hover:not(:disabled)::after {
+    opacity: var(--btn-hover-opacity);
   }
 
   .button__content {
-    @apply h-full w-full gap-[var(--btn-gap)] items-center;
+    @apply h-full w-full flex items-center justify-center gap-[var(--btn-gap)];
   }
 
   .button--primary {
-    @apply material-elevated bg-primaryControl text-white hover:bg-primaryControlHover disabled:opacity-30;
+    @apply material-elevated bg-primaryControl text-white;
   }
 
   .button--secondary {
-    @apply material-elevated-light bg-secondaryControl text-secondaryText hover:bg-secondaryControlHover disabled:opacity-50;
+    @apply material-elevated-light bg-secondaryControl text-secondaryText;
+    --btn-hover-opacity: var(--opacity-hover-sutil);
   }
 
   .button--ghost {
-    @apply bg-transparent text-primaryText hover:bg-secondaryControl/50 disabled:opacity-30;
+    @apply bg-transparent text-primaryText;
+  }
+
+  .button--outline {
+    @apply border border-secondaryControl bg-transparent text-secondaryText;
+  }
+
+  .button--danger {
+    @apply material-elevated bg-destructive text-white;
+  }
+
+  .button--soft-danger {
+    @apply material-elevated-light bg-secondaryControl text-destructive;
+    --btn-hover-opacity: var(--opacity-hover-sutil);
   }
 
   .button--sm {
-    @apply h-9 px-4 text-sm;
+    @apply h-control-sm px-4 text-sm;
     --btn-gap: 0.5rem;
+    --btn-size: var(--spacing-control-sm);
   }
 
   .button--md {
-    @apply h-10 px-5 text-sm;
+    @apply h-control-md px-5 text-sm;
     --btn-gap: 0.575rem;
+    --btn-size: var(--spacing-control-md);
   }
 
   .button--lg {
-    @apply h-11 px-6 text-base;
+    @apply h-control-lg px-6 text-base;
     --btn-gap: 0.65rem;
+    --btn-size: var(--spacing-control-lg);
+  }
+
+  .button--icon-only {
+    @apply size-control-md;
+  }
+
+  .button--icon-only--sm {
+    @apply size-control-sm;
+  }
+
+  .button--icon-only--lg {
+    @apply size-control-lg;
   }
 }

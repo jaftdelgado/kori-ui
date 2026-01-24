@@ -8,6 +8,9 @@ import ComponentExample from "@components/ComponentExample.astro";
 import ButtonUsage from "@examples/button/ButtonUsage.svelte";
 import ButtonUsageCode from "@examples/button/ButtonUsage.svelte?raw";
 
+import ButtonDisabled from "@examples/button/ButtonDisabled.svelte";
+import ButtonDisabledCode from "@examples/button/ButtonDisabled.svelte?raw";
+
 import ButtonVariants from "@examples/button/ButtonVariants.svelte";
 import ButtonVariantsCode from "@examples/button/ButtonVariants.svelte?raw";
 
@@ -16,6 +19,9 @@ import ButtonSizesCode from "@examples/button/ButtonSizes.svelte?raw";
 
 import ButtonContent from "@examples/button/ButtonContent.svelte";
 import ButtonContentCode from "@examples/button/ButtonContent.svelte?raw";
+
+import ButtonIconOnly from "@examples/button/ButtonIconOnly.svelte";
+import ButtonIconOnlyCode from "@examples/button/ButtonIconOnly.svelte?raw";
 
 import ExternalLinks from "@components/ExternalLinks.svelte";
 
@@ -53,14 +59,26 @@ Interactive element that allows action to be taken and desicions to be made with
   <ButtonContent client:load />
 </ComponentExample>
 
+### Icon Only
+
+<ComponentExample code={ButtonIconOnlyCode}>
+  <ButtonIconOnly client:load />
+</ComponentExample>
+
+### Disabled State
+
+<ComponentExample code={ButtonDisabledCode}>
+  <ButtonDisabled client:load />
+</ComponentExample>
+
 ## API Reference
 
 The `Button` component accepts the following properties through Svelte 5 runes.
 
-| Prop           | Type                                  | Default     | Description                              |
-| :------------- | :------------------------------------ | :---------- | :--------------------------------------- |
-| `variant`      | `'primary' \| 'secondary' \| 'ghost'` | `'primary'` | Defines the visual style of the button.  |
-| `size`         | `'sm' \| 'md' \| 'lg'`                | `'md'`      | Sets the vertical scale and padding.     |
-| `disabled`     | `boolean`                             | `false`     | Prevents user interaction when true.     |
-| `startContent` | `Snippet \| Component \| string`      | `undefined` | Content placed before the label (icons). |
-| `endContent`   | `Snippet \| Component \| string`      | `undefined` | Content placed after the label (icons).  |
+| Prop           | Type                                  | Default     |
+| :------------- | :------------------------------------ | :---------- |
+| `variant`      | `'primary' \| 'secondary' \| 'ghost'` | `'primary'` |
+| `size`         | `'sm' \| 'md' \| 'lg'`                | `'md'`      |
+| `disabled`     | `boolean`                             | `false`     |
+| `startContent` | `Snippet \| Component \| string`      | `undefined` |
+| `endContent`   | `Snippet \| Component \| string`      | `undefined` |

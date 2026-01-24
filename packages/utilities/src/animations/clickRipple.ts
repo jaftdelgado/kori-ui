@@ -1,5 +1,7 @@
-export function clickRipple(node: HTMLElement, options = { color: "rgba(255, 255, 255, 0.3)" }) {
+export function clickRipple(node: HTMLElement) {
   const handleMouseDown = (event: MouseEvent) => {
+    if ((node as HTMLButtonElement).disabled) return;
+
     const rect = node.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
     const x = event.clientX - rect.left - size / 2;
@@ -7,17 +9,21 @@ export function clickRipple(node: HTMLElement, options = { color: "rgba(255, 255
 
     const ripple = document.createElement("span");
 
+    const style = window.getComputedStyle(node);
+    const currentOpacity = style.getPropertyValue("--btn-hover-opacity");
+
     Object.assign(ripple.style, {
       position: "absolute",
       width: `${size}px`,
       height: `${size}px`,
       top: `${y}px`,
       left: `${x}px`,
-      background: options.color,
+      background: "var(--color-hover)",
       borderRadius: "50%",
       pointerEvents: "none",
       transform: "scale(0)",
-      animation: "click-ripple-effect 600ms linear"
+      opacity: `calc(${currentOpacity} * 3)`,
+      animation: "click-ripple-effect 1200ms ease-out"
     });
 
     node.appendChild(ripple);
@@ -27,8 +33,6 @@ export function clickRipple(node: HTMLElement, options = { color: "rgba(255, 255
     });
   };
 
-  node.style.position = "relative";
-  node.style.overflow = "hidden";
   node.addEventListener("mousedown", handleMouseDown);
 
   return {
