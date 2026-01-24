@@ -29,7 +29,7 @@ const rootDir = process.cwd();
 const componentsRoot = join(rootDir, "packages", "components");
 const componentDir = join(componentsRoot, nameKebab);
 const stylesDir = join(rootDir, "packages", "styles", "src", "components");
-const mainPackageDir = join(rootDir, "packages", "kori-ui");
+const mainPackageDir = join(rootDir, "packages", "svelte");
 const docsDir = join(rootDir, "apps", "docs", "src");
 
 const packageJsonContent = `{

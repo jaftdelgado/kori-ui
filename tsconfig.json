@@ -19,7 +19,7 @@
     "paths": {
       "@kori-ui/core": ["./packages/core/src/index.ts"],
       "@kori-ui/utilities": ["./packages/utilities/src/index.ts"],
-      "@kori-ui/*": ["./packages/components/*/src/index.ts"]
+      "@kori-ui/svelte": ["./packages/svelte/src/index.ts"]
     },
     "noUnusedLocals": false,
     "noUnusedParameters": false,
