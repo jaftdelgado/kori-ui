@@ -4,9 +4,6 @@
   "workspaces": {
     "": {
       "name": "kori-ui",
-      "dependencies": {
-        "@floating-ui/dom": "^1.7.4",
-      },
       "devDependencies": {
         "@changesets/cli": "^2.29.8",
         "@tailwindcss/vite": "^4.0.0",
@@ -43,17 +40,18 @@
     },
     "packages/styles": {
       "name": "@kori-ui/styles",
-      "version": "0.0.2-alpha.1",
+      "version": "0.0.2-alpha.2",
       "devDependencies": {
         "tailwindcss": "^4.0.0",
       },
     },
     "packages/svelte": {
       "name": "@kori-ui/svelte",
-      "version": "0.0.2-alpha.1",
+      "version": "0.0.2-alpha.2",
       "dependencies": {
-        "@kori-ui/styles": "^0.0.2-alpha.1",
-        "@kori-ui/utilities": "^0.0.2-alpha.1",
+        "@floating-ui/dom": "^1.7.4",
+        "@kori-ui/styles": "^0.0.2-alpha.2",
+        "@kori-ui/utilities": "^0.0.2-alpha.2",
       },
       "peerDependencies": {
         "svelte": "^5.0.0",
@@ -61,7 +59,7 @@
     },
     "packages/utilities": {
       "name": "@kori-ui/utilities",
-      "version": "0.0.2-alpha.1",
+      "version": "0.0.2-alpha.2",
       "dependencies": {
         "clsx": "^2.1.1",
         "tailwind-merge": "^3.4.0",

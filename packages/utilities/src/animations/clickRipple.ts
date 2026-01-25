@@ -22,8 +22,8 @@ export function clickRipple(node: HTMLElement) {
       borderRadius: "50%",
       pointerEvents: "none",
       transform: "scale(0)",
-      opacity: `calc(${currentOpacity} * 3)`,
-      animation: "click-ripple-effect 1200ms ease-out"
+      opacity: `calc(${currentOpacity} * 2)`,
+      animation: "click-ripple-effect 1000ms ease-out"
     });
 
     node.appendChild(ripple);

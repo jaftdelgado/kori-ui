@@ -9,6 +9,7 @@ export * from "./components/input/index.js";
 export * from "./components/popover/index.js";
 export * from "./components/radio/index.js";
 export * from "./components/segmented-control/index.js";
+export * from "./components/separator/index.js";
 export * from "./components/slider/index.js";
 export * from "./components/switch/index.js";
 export * from "./components/tabs/index.js";

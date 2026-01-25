@@ -1,13 +1,7 @@
-# @kori-ui/utilities
+# @kori-ui/styles
 
 ## 0.0.2-alpha.2
 
 ### Patch Changes
 
 - unify components into svelte package and cleanup individual packages
-
-## 0.0.2-alpha.0
-
-### Patch Changes
-
-- Initial alpha release of Kori UI library

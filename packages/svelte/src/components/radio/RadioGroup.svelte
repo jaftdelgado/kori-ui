@@ -1,17 +1,6 @@
 <script lang="ts">
   import { cn } from "@kori-ui/utilities";
-  import { setContext, type Snippet } from "svelte";
-  import type { HTMLAttributes } from "svelte/elements";
-
-  interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "onchange"> {
-    children: Snippet;
-    value?: any;
-    name?: string;
-    size?: "sm" | "md" | "lg";
-    disabled?: boolean;
-    orientation?: "vertical" | "horizontal";
-    onchange?: (value: any) => void;
-  }
+  import { initRadioGroup, type RadioGroupProps } from "./radio.svelte.js";
 
   let {
     children,
@@ -23,31 +12,12 @@
     onchange,
     class: className,
     ...rest
-  }: Props = $props();
+  }: RadioGroupProps & { children: any } = $props();
 
-  class RadioContext {
-    get value() {
-      return value;
-    }
-    get name() {
-      return name;
-    }
-    get size() {
-      return size;
-    }
-    get disabled() {
-      return disabled;
-    }
-
-    setValue(v: any) {
-      if (disabled) return;
-      value = v;
-      onchange?.(v);
-    }
-  }
-
-  const context = new RadioContext();
-  setContext("RadioGroup", context);
+  initRadioGroup(
+    () => ({ value, name, size, disabled, orientation, onchange }),
+    (v) => (value = v)
+  );
 </script>
 
 <div

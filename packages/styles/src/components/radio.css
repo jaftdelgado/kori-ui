@@ -16,7 +16,7 @@
   }
 
   .radio-label[data-disabled="true"] {
-    @apply cursor-not-allowed opacity-60;
+    @apply cursor-auto opacity-disabled;
   }
 
   .radio-input {

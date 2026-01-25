@@ -1,0 +1,55 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Separator | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import SeparatorUsage from "@examples/separator/SeparatorUsage.svelte";
+import SeparatorUsageCode from "@examples/separator/SeparatorUsage.svelte?raw";
+
+import SeparatorVertical from "@examples/separator/SeparatorVertical.svelte";
+import SeparatorVerticalCode from "@examples/separator/SeparatorVertical.svelte?raw";
+
+import SeparatorLabel from "@examples/separator/SeparatorLabel.svelte";
+import SeparatorLabelCode from "@examples/separator/SeparatorLabel.svelte?raw";
+
+# Separator
+
+Visually or semantically separates content in a layout.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/separator/src/lib/Separator.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/components/separator/src/lib/separator.css"
+/>
+
+<ComponentExample code={SeparatorUsageCode}>
+  <SeparatorUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Vertical Orientation
+
+<ComponentExample code={SeparatorVerticalCode}>
+  <SeparatorVertical client:load />
+</ComponentExample>
+
+### With Label
+
+<ComponentExample code={SeparatorLabelCode}>
+  <SeparatorLabel client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Separator` component uses Svelte 5 runes for reactive properties.
+
+| Prop          | Type                         | Default        |
+| :------------ | :--------------------------- | :------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `decorative`  | `boolean`                    | `true`         |
+| `label`       | `string`                     | `undefined`    |
+| `class`       | `string`                     | `undefined`    |

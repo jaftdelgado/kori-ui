@@ -1,0 +1,30 @@
+@layer components {
+  .separator {
+    @apply shrink-0 bg-white/10;
+  }
+
+  /* Cambiamos h-full por self-stretch para que ocupe el alto del padre flex 
+     y añadimos una altura mínima para evitar que colapse si el padre es auto
+  */
+  .separator--vertical {
+    @apply w-[1px] self-stretch min-h-[1rem];
+  }
+
+  .separator--horizontal {
+    @apply h-[1px] w-full;
+  }
+
+  .separator--with-label {
+    @apply flex items-center border-none bg-transparent h-auto w-full;
+  }
+
+  .separator--with-label::before,
+  .separator--with-label::after {
+    content: "";
+    @apply h-[1px] flex-1 bg-white/10;
+  }
+
+  .separator__label {
+    @apply px-3 text-xs font-medium text-placeholderText uppercase whitespace-nowrap;
+  }
+}
