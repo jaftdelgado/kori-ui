@@ -1,0 +1,30 @@
+@layer components {
+  .button-group {
+    @apply inline-flex items-center justify-center;
+  }
+
+  .button-group--spaced {
+    @apply gap-2;
+  }
+
+  .button-group--attached .button {
+    @apply rounded-none;
+    @apply focus:z-10 active:z-10 relative;
+  }
+
+  .button-group--attached .button + .button {
+    @apply -ml-px;
+  }
+
+  .button-group--attached .button:first-child {
+    @apply rounded-s-control;
+  }
+
+  .button-group--attached .button:last-child {
+    @apply rounded-e-control;
+  }
+
+  .button-group--attached .button:hover {
+    @apply z-20;
+  }
+}

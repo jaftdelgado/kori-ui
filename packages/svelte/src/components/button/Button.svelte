@@ -1,7 +1,8 @@
 <script lang="ts">
   import { cn, clickRipple } from "@kori-ui/utilities";
   import type { HTMLButtonAttributes } from "svelte/elements";
-  import type { Snippet, Component } from "svelte";
+  import type { Snippet } from "svelte";
+  import { getContext } from "svelte";
 
   type IconContent = Snippet | string;
 
@@ -39,6 +40,15 @@
     iconOnly = false,
     ...rest
   }: Props = $props();
+
+  const BUTTON_GROUP_CTX_KEY = "button-group";
+  const groupContext = getContext<{
+    variant: BaseProps["variant"];
+    size: BaseProps["size"];
+  }>(BUTTON_GROUP_CTX_KEY);
+
+  const finalVariant = $derived(groupContext?.variant ?? variant);
+  const finalSize = $derived(groupContext?.size ?? size);
 </script>
 
 {#snippet renderIcon(content: IconContent | undefined)}
@@ -59,8 +69,8 @@
   use:clickRipple
   class={cn(
     "button",
-    `button--${variant}`,
-    iconOnly ? ["button--icon-only", `button--icon-only--${size}`] : `button--${size}`,
+    `button--${finalVariant}`,
+    iconOnly ? ["button--icon-only", `button--icon-only--${finalSize}`] : `button--${finalSize}`,
     className
   )}
 >

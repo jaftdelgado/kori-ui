@@ -1,0 +1,57 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Button Group | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import ButtonGroupUsage from "@examples/button-group/ButtonGroupUsage.svelte";
+import ButtonGroupUsageCode from "@examples/button-group/ButtonGroupUsage.svelte?raw";
+
+import ButtonGroupSizes from "@examples/button-group/ButtonGroupSizes.svelte";
+import ButtonGroupSizesCode from "@examples/button-group/ButtonGroupSizes.svelte?raw";
+
+import ButtonGroupVariants from "@examples/button-group/ButtonGroupVariants.svelte";
+import ButtonGroupVariantsCode from "@examples/button-group/ButtonGroupVariants.svelte?raw";
+
+# Button Group
+
+A container component that groups multiple buttons together, applying consistent styling and spacing.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/button-group/ButtonGroup.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/button-group/button-group.css"
+/>
+
+<ComponentExample code={ButtonGroupUsageCode}>
+  <ButtonGroupUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+<ComponentExample code={ButtonGroupSizesCode}>
+  <ButtonGroupSizes client:load />
+</ComponentExample>
+
+### Variants
+
+<ComponentExample code={ButtonGroupVariantsCode}>
+  <ButtonGroupVariants client:load />
+</ComponentExample>
+
+---
+
+## API Reference
+
+The `ButtonGroup` component uses Svelte 5 runes and context to share properties with child buttons.
+
+| Prop       | Type                                                                      | Default     | 
+| :--------- | :------------------------------------------------------------------------ | :---------- | 
+| `variant`  | `'primary' \| 'secondary' \| 'ghost' \| 'outline' \| 'danger' \| 'soft-danger'` | `'primary'` | 
+| `size`     | `'sm' \| 'md' \| 'lg'`                                                    | `'md'`      | 
+| `attached` | `boolean`                                                                 | `true`      | 
+| `class`    | `string`                                                                  | `undefined` | 
