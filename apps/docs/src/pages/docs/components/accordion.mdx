@@ -1,0 +1,59 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Accordion | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import AccordionUsage from "@examples/accordion/AccordionUsage.svelte";
+import AccordionUsageCode from "@examples/accordion/AccordionUsage.svelte?raw";
+
+import AccordionMultiple from "@examples/accordion/AccordionMultiple.svelte";
+import AccordionMultipleCode from "@examples/accordion/AccordionMultiple.svelte?raw";
+
+# Accordion
+
+Accordions display a list of high-level options that can expand/collapse to reveal more information.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/accordion/Accordion.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/styles/src/components/accordion.css"
+/>
+
+<ComponentExample code={AccordionUsageCode}>
+  <AccordionUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Multiple Select
+
+<ComponentExample code={AccordionMultipleCode}>
+  <AccordionMultiple client:load />
+</ComponentExample>
+
+## API Reference
+
+The `Accordion` component uses a data-driven approach with `items` and Svelte 5 snippets for custom rendering.
+
+| Prop                  | Type                     | Default     |
+| :-------------------- | :----------------------- | :---------- |
+| `items`               | `AccordionItemProps[]`   | `[]`        |
+| `selectionMode`       | `"single" \| "multiple"` | `"single"`  |
+| `defaultExpandedKeys` | `string[]`               | `[]`        |
+| `children`            | `Snippet<[item]>`        | `undefined` |
+| `titleContent`        | `Snippet<[item]>`        | `undefined` |
+| `itemClasses`         | `object`                 | `{}`        |
+
+### AccordionItemProps
+
+| Property       | Type      | Description                                     |
+| :------------- | :-------- | :---------------------------------------------- |
+| `key`          | `string`  | Unique identifier for the item.                 |
+| `title`        | `string`  | Main text shown in the trigger.                 |
+| `subtitle`     | `string`  | Secondary text shown below the title.           |
+| `disabled`     | `boolean` | Whether the item is interactive.                |
+| `startContent` | `Snippet` | Content shown before the title (e.g., an icon). |
+| `indicator`    | `Snippet` | Custom icon to replace the default chevron.     |

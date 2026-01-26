@@ -40,11 +40,11 @@
   }
 
   .chip-content-wrapper {
-    @apply flex items-center justify-center flex-shrink-0;
+    @apply flex items-center justify-center shrink-0;
   }
 
   .chip-dot {
-    @apply rounded-full flex-shrink-0;
+    @apply rounded-full shrink-0;
   }
 
   .chip--sm .chip-dot {
@@ -58,7 +58,7 @@
   }
 
   .chip-content-wrapper :global(svg) {
-    @apply flex-shrink-0 block;
+    @apply shrink-0 block;
   }
 
   .chip--sm .chip-content-wrapper :global(svg) {
@@ -77,7 +77,7 @@
   }
 
   .chip-remove-icon {
-    @apply w-full h-full flex-shrink-0;
+    @apply w-full h-full shrink-0;
   }
 
   .chip--sm .chip-remove-button {

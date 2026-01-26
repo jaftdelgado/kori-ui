@@ -3,7 +3,7 @@
     @apply material-interactive;
     @apply relative overflow-hidden inline-flex items-center justify-center rounded-control font-medium transition-colors duration-200 cursor-pointer;
     @apply leading-none text-center whitespace-nowrap select-none;
-    @apply disabled:opacity-disabled disabled:cursor-auto; /* Uso de variable centralizada */
+    @apply disabled:opacity-disabled disabled:cursor-auto;
 
     --btn-hover-opacity: var(--opacity-hover);
   }
@@ -18,15 +18,15 @@
   }
 
   .button__content {
-    @apply h-full w-full flex items-center justify-center gap-[var(--btn-gap)];
+    @apply h-full w-full flex items-center justify-center gap-(--btn-gap);
   }
 
   .button--primary {
-    @apply material-elevated bg-primaryControl text-white;
+    @apply bg-primaryControl text-white;
   }
 
   .button--secondary {
-    @apply material-elevated-light bg-secondaryControl text-secondaryText;
+    @apply bg-secondaryControl text-secondaryText;
     --btn-hover-opacity: var(--opacity-hover-sutil);
   }
 
@@ -39,11 +39,11 @@
   }
 
   .button--danger {
-    @apply material-elevated bg-destructive text-white;
+    @apply bg-destructive text-white;
   }
 
   .button--soft-danger {
-    @apply material-elevated-light bg-secondaryControl text-destructive;
+    @apply bg-secondaryControl text-destructive;
     --btn-hover-opacity: var(--opacity-hover-sutil);
   }
 

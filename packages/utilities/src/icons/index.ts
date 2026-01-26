@@ -1,3 +1,4 @@
+export * from "./chevronRightIcon";
 export * from "./closeIcon";
 export * from "./crossIcon";
 export * from "./infoIcon";

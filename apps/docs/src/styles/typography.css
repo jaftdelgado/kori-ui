@@ -1,11 +1,11 @@
 @layer base {
   .prose-content {
     & h1:not([class*="text--"]) {
-      @apply text-primaryText text-4xl font-semibold mb-6 tracking-tighter;
+      @apply text-primaryText text-4xl font-semibold mb-4 tracking-tighter;
     }
 
     & h2:not([class*="text--"]) {
-      @apply text-2xl font-medium mb-4 mt-16 text-zinc-100 pb-2 tracking-tight;
+      @apply text-2xl font-medium mt-16 text-zinc-100 tracking-tight;
     }
 
     & h3:not([class*="text--"]) {
@@ -13,7 +13,7 @@
     }
 
     & p:not([class*="text--"]) {
-      @apply text-zinc-400 leading-relaxed text-[15px];
+      @apply text-secondaryText leading-relaxed text-base;
     }
 
     & pre {
@@ -41,7 +41,6 @@
 }
 
 @layer components {
-  /* Forzamos que los componentes Text no hereden márgenes de la base prose */
   [class*="text--"] {
     margin: 0;
   }

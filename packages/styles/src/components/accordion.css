@@ -1,0 +1,50 @@
+@layer components {
+  .accordion {
+    @apply flex flex-col w-full;
+  }
+
+  .accordion-item {
+    @apply flex flex-col w-full border-b border-secondaryControl transition-all duration-200;
+  }
+
+  .accordion-item:last-child {
+    @apply border-b-0;
+  }
+
+  .accordion-item--disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  .accordion-trigger {
+    @apply flex w-full items-center justify-between py-4 px-2 outline-none cursor-pointer transition-opacity;
+    @apply hover:opacity-80 active:opacity-100;
+  }
+
+  .accordion-title-wrapper {
+    @apply flex flex-col text-left gap-1;
+  }
+
+  .accordion-title {
+    @apply text-primaryText text-sm font-medium;
+  }
+
+  .accordion-subtitle {
+    @apply text-secondaryText text-sm;
+  }
+
+  .accordion-indicator {
+    @apply flex items-center justify-center text-secondaryText transition-transform duration-300 w-5 h-5 shrink-0;
+  }
+
+  .accordion-indicator--rotate {
+    @apply -rotate-90;
+  }
+
+  .accordion-content {
+    @apply overflow-hidden text-secondaryText text-sm;
+  }
+
+  .accordion-content-wrapper {
+    @apply pb-4 px-2 pt-0;
+  }
+}
