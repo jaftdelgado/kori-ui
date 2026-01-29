@@ -1,0 +1,25 @@
+@layer components {
+  .text-field {
+    @apply flex flex-col w-full gap-1.5;
+  }
+
+  .text-field--disabled {
+    @apply opacity-30 pointer-events-none;
+  }
+
+  .text-field-label {
+    @apply text-sm font-medium text-primaryText mb-0.5 leading-tight;
+  }
+
+  .text-field-description {
+    @apply text-xs text-secondaryText mt-0.5;
+  }
+
+  .text-field-error {
+    @apply text-xs text-destructive mt-0.5 font-medium;
+  }
+
+  .text-destructive {
+    color: var(--color-destructive);
+  }
+}

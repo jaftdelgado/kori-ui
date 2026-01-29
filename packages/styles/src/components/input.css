@@ -1,29 +1,14 @@
 @layer components {
-  .input-group {
-    @apply flex flex-col w-full gap-1.5;
-  }
-
-  .input-group--disabled {
-    @apply opacity-30 pointer-events-none;
-  }
-
   .input {
     @apply relative inline-flex items-center w-full rounded-control border border-transparent transition-all duration-200;
     @apply bg-secondaryControl text-primaryText placeholder:text-placeholderText;
-    @apply focus:outline-none focus:ring-4 focus:ring-primaryControl/20 focus:border-primaryControl;
+    @apply focus-ring;
     @apply disabled:cursor-not-allowed;
   }
 
-  .input-label {
-    @apply text-sm font-medium text-primaryText leading-tight px-4;
-  }
-
-  .text-destructive {
-    color: var(--color-destructive);
-  }
-
-  .input-description {
-    @apply text-xs text-secondaryText mt-0.5 px-4;
+  .input--error,
+  .input[aria-invalid="true"] {
+    @apply border-destructive focus:border-destructive focus:ring-destructive/20;
   }
 
   .input--sm {

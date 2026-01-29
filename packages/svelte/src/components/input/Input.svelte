@@ -1,12 +1,14 @@
 <script lang="ts">
   import { cn } from "@kori-ui/utilities";
   import type { HTMLInputAttributes } from "svelte/elements";
+  import TextField from "../text-field/TextField.svelte";
 
   interface Props extends Omit<HTMLInputAttributes, "size"> {
     value?: string | number;
     size?: "sm" | "md" | "lg";
     label?: string;
     description?: string;
+    errorMessage?: string;
     isRequired?: boolean;
   }
 
@@ -18,34 +20,30 @@
     type = "text",
     label,
     description,
+    errorMessage,
     isRequired = false,
-    id = crypto.randomUUID(),
+    id,
     ...rest
   }: Props = $props();
 </script>
 
-<div class={cn("input-group", disabled && "input-group--disabled")}>
-  {#if label}
-    <label for={id} class="input-label">
-      {label}
-      {#if isRequired}
-        <span class="text-destructive">*</span>
-      {/if}
-    </label>
-  {/if}
-
-  <input
-    {id}
-    {type}
-    {disabled}
-    bind:value
-    class={cn("input", `input--${size}`, className)}
-    {...rest}
-  />
-
-  {#if description}
-    <span class="input-description">
-      {description}
-    </span>
-  {/if}
-</div>
+<TextField
+  id={id ?? undefined}
+  {label}
+  {description}
+  {errorMessage}
+  {isRequired}
+  disabled={disabled ?? false}
+>
+  {#snippet children(generatedId)}
+    <input
+      id={generatedId}
+      {type}
+      {disabled}
+      bind:value
+      aria-invalid={!!errorMessage}
+      class={cn("input", `input--${size}`, !!errorMessage && "input--error", className)}
+      {...rest}
+    />
+  {/snippet}
+</TextField>

@@ -11,48 +11,38 @@
   }
 
   .input-otp-slot {
-    @apply text-center px-0 w-10 transition-all;
-    @apply focus:z-10 focus:ring-4 focus:ring-primaryControl/20;
+    @apply relative inline-flex items-center text-center px-0 w-10 transition-all duration-200;
+    @apply rounded-control border border-transparent;
+    @apply bg-secondaryControl text-primaryText focus-ring;
+    @apply disabled:cursor-not-allowed;
+  }
+
+  .input-otp-slot--filled {
+    caret-color: transparent;
+  }
+
+  .input-otp-slot--filled::selection {
+    background: transparent;
+    color: inherit;
+  }
+
+  .input-otp-slot--error {
+    @apply border-destructive focus:border-destructive focus:ring-destructive/20;
   }
 
   .input-otp-separator {
     @apply w-2 h-0.5 bg-secondaryText rounded-full opacity-50 shrink-0;
   }
 
-  .input-otp-slot.input--sm {
+  .input-otp-slot.otp--sm {
     @apply w-8 h-9 text-sm;
   }
 
-  .input-otp-slot.input--md {
+  .input-otp-slot.otp--md {
     @apply w-9 h-10 text-base;
   }
 
-  .input-otp-slot.input--lg {
+  .input-otp-slot.otp--lg {
     @apply w-10 h-12 text-lg;
-  }
-
-  .input-group {
-    @apply flex flex-col w-full gap-4;
-  }
-
-  .input-group--disabled {
-    @apply opacity-30 pointer-events-none;
-  }
-
-  .input {
-    @apply relative inline-flex items-center rounded-control border border-transparent transition-all duration-200;
-    @apply bg-secondaryControl text-primaryText placeholder:text-placeholderText;
-    @apply focus:outline-none focus:ring-4 focus:ring-primaryControl/20 focus:border-primaryControl;
-    @apply disabled:cursor-not-allowed;
-  }
-
-  .input-label {
-    @apply text-sm font-medium text-primaryText leading-tight px-1;
-    @apply break-words overflow-hidden max-w-full block mb-2;
-  }
-
-  .input-description {
-    @apply text-xs text-secondaryText mt-2 px-1 leading-normal;
-    @apply break-words overflow-hidden max-w-full block;
   }
 }

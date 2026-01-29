@@ -93,8 +93,8 @@
       {#if isOpen}
         <div
           class={cn("accordion-content", itemClasses.content)}
-          in:slide={{ duration: 350, easing: backOut, axis: "y" }}
-          out:slide={{ duration: 350, easing: cubicOut, axis: "y" }}
+          in:slide={{ duration: 400, easing: backOut, axis: "y" }}
+          out:slide={{ duration: 300, easing: cubicOut, axis: "y" }}
         >
           <div class="accordion-content-wrapper" in:fade={{ duration: 100, delay: 150 }}>
             {#if item.content}

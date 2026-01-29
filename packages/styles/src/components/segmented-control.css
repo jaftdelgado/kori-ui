@@ -1,6 +1,6 @@
 @layer components {
   .segmented-group {
-    @apply relative inline-flex bg-secondaryControl rounded-control select-none isolate p-1;
+    @apply relative inline-flex bg-secondaryControl rounded-control select-none isolate p-0.5;
   }
 
   .segmented-group[data-orientation="horizontal"] {
@@ -29,8 +29,8 @@
   }
 
   .segmented-indicator {
-    @apply absolute bg-surface shadow-xs z-10 pointer-events-none material-elevated-light;
-    @apply rounded-[calc(var(--radius-control)-4px)];
+    @apply absolute bg-surface shadow-xs z-10 pointer-events-none;
+    @apply rounded-[calc(var(--radius-control)-2px)];
     @apply transition-all duration-300 ease-out;
     top: 0;
     left: 0;

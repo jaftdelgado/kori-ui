@@ -1,0 +1,86 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "Number Input | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import NumberInputUsage from "@examples/number-input/NumberInputUsage.svelte";
+import NumberInputUsageCode from "@examples/number-input/NumberInputUsage.svelte?raw";
+
+import NumberInputSizes from "@examples/number-input/NumberInputSizes.svelte";
+import NumberInputSizesCode from "@examples/number-input/NumberInputSizes.svelte?raw";
+
+import NumberInputRange from "@examples/number-input/NumberInputRange.svelte";
+import NumberInputRangeCode from "@examples/number-input/NumberInputRange.svelte?raw";
+
+import NumberInputStep from "@examples/number-input/NumberInputStep.svelte";
+import NumberInputStepCode from "@examples/number-input/NumberInputStep.svelte?raw";
+
+import NumberInputDisabled from "@examples/number-input/NumberInputDisabled.svelte";
+import NumberInputDisabledCode from "@examples/number-input/NumberInputDisabled.svelte?raw";
+
+# NumberInput
+
+A specialized input component for numeric values with increment and decrement controls, perfect for quantities, prices, and measurements.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/number-input/NumberInput.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/number-input/number-input.css"
+/>
+
+<ComponentExample code={NumberInputUsageCode}>
+  <NumberInputUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Sizes
+
+<ComponentExample code={NumberInputSizesCode}>
+  <NumberInputSizes client:load />
+</ComponentExample>
+
+### Min & Max Range
+
+Constrain values within specific boundaries for validation and data integrity.
+
+<ComponentExample code={NumberInputRangeCode}>
+  <NumberInputRange client:load />
+</ComponentExample>
+
+### Custom Step Values
+
+Control the increment/decrement precision for prices, measurements, and other specific use cases.
+
+<ComponentExample code={NumberInputStepCode}>
+  <NumberInputStep client:load />
+</ComponentExample>
+
+### Disabled State
+
+<ComponentExample code={NumberInputDisabledCode}>
+  <NumberInputDisabled client:load />
+</ComponentExample>
+
+---
+
+## API Reference
+
+The `NumberInput` component uses Svelte 5 runes for reactivity and state binding.
+
+| Prop          | Type                   | Default          |
+| :------------ | :--------------------- | :--------------- |
+| `value`       | `number \| null`       | `null`           |
+| `size`        | `'sm' \| 'md' \| 'lg'` | `'md'`           |
+| `label`       | `string`               | `undefined`      |
+| `description` | `string`               | `undefined`      |
+| `isRequired`  | `boolean`              | `false`          |
+| `min`         | `number`               | `-Infinity`      |
+| `max`         | `number`               | `Infinity`       |
+| `step`        | `number`               | `1`              |
+| `disabled`    | `boolean`              | `false`          |
+| `placeholder` | `string`               | `undefined`      |
+| `id`          | `string`               | `auto-generated` |

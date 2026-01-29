@@ -1,11 +1,8 @@
 <script lang="ts">
   import { cn } from "@kori-ui/utilities";
   import type { HTMLInputAttributes } from "svelte/elements";
-  import { OTPController } from "./otp.svelte.ts";
-
-  // TO DO: agregar Placeholder
-  // Agregar animacion de escritura
-  // Agregar estado de validacion
+  import TextField from "../text-field/TextField.svelte";
+  import { OTPController } from "./otp.svelte.js";
 
   interface Props extends Omit<
     HTMLInputAttributes,
@@ -17,11 +14,12 @@
     separators?: number[];
     label?: string;
     description?: string;
+    errorMessage?: string;
+    isRequired?: boolean;
     disabled?: boolean;
     readonly?: boolean;
     pattern?: RegExp;
     oncomplete?: (value: string) => void;
-    placeholder?: never;
   }
 
   let {
@@ -35,9 +33,10 @@
     pattern = /^\d+$/,
     label,
     description,
+    errorMessage,
+    isRequired = false,
     oncomplete,
-    id = crypto.randomUUID(),
-    placeholder: _,
+    id,
     ...rest
   }: Props = $props();
 
@@ -55,26 +54,33 @@
   });
 </script>
 
-<div class={cn("input-group", disabled && "input-group--disabled", className)}>
-  <div class="input-otp-wrapper">
-    {#if label}
-      <label for="{id}-0" class="input-label">
-        {label}
-      </label>
-    {/if}
-
+<TextField
+  id={id ?? undefined}
+  {label}
+  {description}
+  {errorMessage}
+  {isRequired}
+  disabled={disabled ?? false}
+  class={cn(className)}
+>
+  {#snippet children(generatedId)}
     <div class="input-otp-container">
       {#each Array(length) as _, i}
         <input
           bind:this={otp.inputs[i]}
-          id="{id}-{i}"
+          id={i === 0 ? generatedId : `${generatedId}-${i}`}
           type="text"
           inputmode="numeric"
-          {disabled}
+          disabled={disabled ?? false}
           {readonly}
           maxlength={1}
           value={value?.[i] ?? ""}
-          class={cn("input input-otp-slot", `input--${size}`)}
+          class={cn(
+            "input-otp-slot",
+            `otp--${size}`,
+            !!errorMessage && "input-otp-slot--error",
+            value?.[i] && "input-otp-slot--filled"
+          )}
           oninput={(e) => otp.handleInput(e, i, value ?? "", (v) => (value = v))}
           onkeydown={(e) => otp.handleKeydown(e, i, value ?? "", (v) => (value = v))}
           onpaste={(e) => otp.handlePaste(e, (v) => (value = v))}
@@ -87,9 +93,5 @@
         {/if}
       {/each}
     </div>
-
-    {#if description}
-      <span class="input-description">{description}</span>
-    {/if}
-  </div>
-</div>
+  {/snippet}
+</TextField>

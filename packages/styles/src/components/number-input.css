@@ -1,0 +1,40 @@
+@layer components {
+  .number-input::-webkit-outer-spin-button,
+  .number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .number-input-wrapper {
+    @apply relative w-full;
+  }
+
+  .input.number-input {
+    @apply text-center px-10;
+  }
+
+  .number-control {
+    @apply absolute top-0 h-full flex items-center justify-center z-10;
+    @apply text-secondaryText hover:text-primaryText hover:bg-primaryControl/10 active:bg-primaryControl/20 transition-colors;
+    @apply disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+
+  .number-control--dec {
+    @apply left-0 rounded-l-control border-r border-transparent;
+  }
+
+  .number-control--inc {
+    @apply right-0 rounded-r-control border-l border-transparent;
+  }
+
+  .input--sm ~ .number-control {
+    @apply w-8;
+  }
+
+  .input--md ~ .number-control {
+    @apply w-10;
+  }
+
+  .input--lg ~ .number-control {
+    @apply w-12;
+  }
+}
