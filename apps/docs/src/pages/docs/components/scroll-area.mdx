@@ -1,0 +1,74 @@
+---
+layout: "@layouts/DocsLayout.astro"
+title: "ScrollArea | Kori UI"
+---
+
+import ComponentExample from "@components/ComponentExample.astro";
+import ExternalLinks from "@components/ExternalLinks.svelte";
+
+import ScrollAreaUsage from "@examples/scroll-area/ScrollAreaUsage.svelte";
+import ScrollAreaUsageCode from "@examples/scroll-area/ScrollAreaUsage.svelte?raw";
+
+import ScrollAreaHorizontal from "@examples/scroll-area/ScrollAreaHorizontal.svelte";
+import ScrollAreaHorizontalCode from "@examples/scroll-area/ScrollAreaHorizontal.svelte?raw";
+
+import ScrollAreaHideScrollbar from "@examples/scroll-area/ScrollAreaHideScrollbar.svelte";
+import ScrollAreaHideScrollbarCode from "@examples/scroll-area/ScrollAreaHideScrollbar.svelte?raw";
+
+import ScrollAreaShadowSize from "@examples/scroll-area/ScrollAreaShadowSize.svelte";
+import ScrollAreaShadowSizeCode from "@examples/scroll-area/ScrollAreaShadowSize.svelte?raw";
+
+# ScrollArea
+
+A container component that provides consistent scrolling behavior with visual scroll indicators and optional shadow effects for content overflow.
+
+<ExternalLinks
+  client:load
+  githubUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/scroll-area/ScrollArea.svelte"
+  styleUrl="https://github.com/jaftdelgado/kori-ui/blob/main/packages/svelte/src/components/scroll-area/scroll-area.css"
+/>
+
+<ComponentExample code={ScrollAreaUsageCode}>
+  <ScrollAreaUsage client:load />
+</ComponentExample>
+
+## Examples
+
+### Horizontal Scrolling
+
+Use `orientation="horizontal"` for horizontally scrollable content like category filters or image galleries.
+
+<ComponentExample code={ScrollAreaHorizontalCode}>
+  <ScrollAreaHorizontal client:load />
+</ComponentExample>
+
+### Hidden Scrollbar
+
+Use `hideScrollBar` to create a clean look while maintaining scroll functionality.
+
+<ComponentExample code={ScrollAreaHideScrollbarCode}>
+  <ScrollAreaHideScrollbar client:load />
+</ComponentExample>
+
+### Shadow Size
+
+Control the shadow indicator size with the `size` prop to provide visual hints about scrollable content.
+
+<ComponentExample code={ScrollAreaShadowSizeCode}>
+  <ScrollAreaShadowSize client:load />
+</ComponentExample>
+
+---
+
+## API Reference
+
+The `ScrollArea` component uses Svelte 5 runes and ResizeObserver for dynamic scroll state detection.
+
+| Prop            | Type                         | Default      | Description                                             |
+| :-------------- | :--------------------------- | :----------- | :------------------------------------------------------ |
+| `orientation`   | `'vertical' \| 'horizontal'` | `'vertical'` | The scroll direction of the container.                  |
+| `hideScrollBar` | `boolean`                    | `false`      | Whether to hide the native scrollbar.                   |
+| `size`          | `number`                     | `40`         | The size (in pixels) of the scroll shadow indicator.    |
+| `offset`        | `number`                     | `0`          | Offset threshold for detecting scroll start/end states. |
+| `isEnabled`     | `boolean`                    | `true`       | Whether scroll state detection is active.               |
+| `class`         | `string`                     | `undefined`  | Additional CSS classes to apply to the container.       |

@@ -2,6 +2,7 @@
 
 @import "tailwindcss";
 @import "@kori-ui/styles";
+@import "./theme.css";
 @import "./typography.css";
 
 @theme {

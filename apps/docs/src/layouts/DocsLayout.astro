@@ -21,18 +21,18 @@ const { title = "Kori UI Docs", headings = [] } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased overflow-x-hidden">
+  <body class="bg-page-bg text-zinc-100 antialiased overflow-x-hidden">
     <Topbar />
     
     <div class="flex pt-16 min-h-screen max-w-360 mx-auto">
       <div 
         id="sidebar-overlay" 
-        class="fixed inset-0 z-40 bg-zinc-950/60 backdrop-blur-sm hidden md:hidden transition-opacity"
+        class="fixed inset-0 z-40 bg-page-bg/60 backdrop-blur-sm hidden md:hidden transition-opacity"
       ></div>
 
       <aside 
         id="sidebar-container"
-        class="fixed inset-y-0 left-0 z-50 w-72 bg-zinc-950 border-r border-zinc-900 transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:flex md:flex-col md:h-[calc(100vh-64px)] md:sticky md:top-16 md:border-none overflow-y-auto p-6 shrink-0"
+        class="fixed inset-y-0 left-0 z-50 w-72 bg-page-bg border-r border-zinc-900 transform -translate-x-full transition-transform duration-300 ease-in-out md:translate-x-0 md:flex md:flex-col md:h-[calc(100vh-64px)] md:sticky md:top-16 md:border-none overflow-y-auto p-6 shrink-0"
       >
         <Sidebar />
       </aside>
