@@ -12,6 +12,9 @@ import AvatarUsageCode from "@examples/avatar/AvatarUsage.svelte?raw";
 import AvatarSizes from "@examples/avatar/AvatarSizes.svelte";
 import AvatarSizesCode from "@examples/avatar/AvatarSizes.svelte?raw";
 
+import AvatarGroupExample from "@examples/avatar/AvatarGroup.svelte";
+import AvatarGroupCode from "@examples/avatar/AvatarGroup.svelte?raw";
+
 # Avatar
 
 A visual representation of a user or entity, typically displaying a profile image or initials.
@@ -34,12 +37,30 @@ The component includes three predefined sizes: `sm` (32px), `md` (40px), and `lg
   <AvatarSizes client:load />
 </ComponentExample>
 
+### Avatar Group
+
+Display multiple avatars together in a group. Use the `grouped` prop on the `Avatar` component to add a ring around it for better separation.
+
+<ComponentExample code={AvatarGroupCode}>
+  <AvatarGroupExample client:load />
+</ComponentExample>
+
 ## API Reference
 
-| Prop       | Type                   | Default    | Description                                 |
-| :--------- | :--------------------- | :--------- | :------------------------------------------ |
-| `src`      | `string`               | `""`       | The source URL of the image to display.     |
-| `alt`      | `string`               | `"Avatar"` | Accessible text for the image.              |
-| `size`     | `"sm" \| "md" \| "lg"` | `"md"`     | The scale of the avatar.                    |
-| `fallback` | `string`               | `"?"`      | Text to display if the image fails to load. |
-| `class`    | `string`               | `""`       | Additional CSS classes for the container.   |
+### Avatar
+
+| Prop       | Type                   | Default    | Description                                                     |
+| :--------- | :--------------------- | :--------- | :-------------------------------------------------------------- |
+| `src`      | `string`               | `undefined` | The source URL of the image to display.                        |
+| `alt`      | `string`               | `"Avatar"` | Accessible text for the image.                                  |
+| `size`     | `"sm" \| "md" \| "lg"` | `"md"`     | The scale of the avatar.                                        |
+| `fallback` | `string`               | `"?"`      | Text to display if the image fails to load.                     |
+| `grouped`  | `boolean`              | `false`    | Adds a ring around the avatar, useful when used in an `AvatarGroup`. |
+| `class`    | `string`               | `""`       | Additional CSS classes for the container.                       |
+
+### AvatarGroup
+
+| Prop       | Type                   | Default    | Description                               |
+| :--------- | :--------------------- | :--------- | :---------------------------------------- |
+| `children` | `Snippet`              | `undefined` | The avatars to display in the group.      |
+| `class`    | `string`               | `""`       | Additional CSS classes for the container. |

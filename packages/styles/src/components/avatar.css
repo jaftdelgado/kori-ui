@@ -2,6 +2,11 @@
   .avatar {
     @apply relative flex shrink-0 overflow-hidden rounded-full bg-secondaryControl;
     @apply border border-white/5;
+    @apply box-border;
+  }
+
+  .avatar--grouped {
+    @apply ring-2 ring-surface;
   }
 
   .avatar__image {
@@ -10,7 +15,7 @@
 
   .avatar__fallback {
     @apply flex h-full w-full items-center justify-center rounded-full bg-secondaryControl text-secondaryText uppercase;
-    user-select: none;
+    @apply select-none font-medium;
   }
 
   .avatar--sm {
@@ -23,5 +28,13 @@
 
   .avatar--lg {
     @apply h-12 w-12 text-base;
+  }
+
+  .avatar-group {
+    @apply flex items-center -space-x-3;
+  }
+
+  .avatar-group .avatar:hover {
+    @apply z-10;
   }
 }
